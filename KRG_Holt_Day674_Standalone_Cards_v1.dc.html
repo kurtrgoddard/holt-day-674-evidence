@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E5E1D6}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<section style="display:flex;flex-direction:column;gap:36px;padding:56px;align-items:flex-start;font-family:'Atkinson Hyperlegible',Arial,sans-serif">
+<div style="max-width:920px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_DAY674_STANDALONE_CARDS_V1 · 4 FEATURE GRAPHICS (1080×1350) + 6 SHAREABLES (1080×1080)</div>
+  <div style="font-size:30px;font-weight:700;color:#22262B;margin-top:6px">Feature graphics + standalone shareables</div>
+</div>
+
+<div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:2px;color:#8A5E0D">A · FEATURE GRAPHICS</div>
+<div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+<!-- ===== FINGERPRINT ===== -->
+<div data-screen-label="A1 Trajectory fingerprint" style="width:1080px;height:1350px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #22262B;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600">HOLT AT DAY 674</span><span style="color:#5A6069"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">TRAJECTORY FINGERPRINTS · EVIDENCE TO AUG 26, 2026</div>
+  </div>
+  <div style="font-size:42px;font-weight:700;line-height:1.15;margin-top:26px;letter-spacing:-0.5px">Five mandates, same yardstick</div>
+  <div style="font-size:21px;color:#5A6069;margin-top:8px">Governing-party support as change from its own election result (0 = election day share, valid votes). Up to three verified points per mandate — election, frozen day 674, and the next election where it has happened (Holt: two points so far). No curve is drawn through unpolled years.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px">
+    <sc-for list="{{fps}}" as="f" hint-placeholder-count="6">
+      <div style="border:{{f.border}};background:#FCFBF8;padding:14px 16px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <div style="font-size:22px;font-weight:700">{{f.n}} <span style="font-size:15px;font-weight:400;color:{{f.pc}}">{{f.party}}</span></div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069">{{f.yrs}}</div>
+        </div>
+        <svg width="424" height="216" viewBox="0 0 424 216" style="margin-top:6px">
+          <line x1="16" y1="{{f.zy}}" x2="412" y2="{{f.zy}}" stroke="#B7B0A0" stroke-width="1.2" stroke-dasharray="2 4"></line>
+          <text x="416" y="{{f.zyt}}" font-family="IBM Plex Mono" font-size="11" fill="#5A6069" text-anchor="end">0</text>
+          <sc-for list="{{f.segs}}" as="s" hint-placeholder-count="2">
+            <line x1="{{s.x1}}" y1="{{s.y1}}" x2="{{s.x2}}" y2="{{s.y2}}" stroke="{{s.c}}" stroke-width="3" stroke-dasharray="5 6" stroke-linecap="round"></line>
+          </sc-for>
+          <sc-for list="{{f.pts}}" as="p" hint-placeholder-count="3">
+            <circle cx="{{p.x}}" cy="{{p.y}}" r="6.5" fill="{{p.f}}" stroke="{{p.st}}" stroke-width="2"></circle>
+          </sc-for>
+          <sc-for list="{{f.lbls}}" as="t" hint-placeholder-count="5">
+            <text x="{{t.x}}" y="{{t.y}}" font-family="IBM Plex Mono" font-size="12.5" font-weight="{{t.w}}" fill="{{t.c}}" text-anchor="{{t.a}}">{{t.txt}}</text>
+          </sc-for>
+        </svg>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:4px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#3A3F46">LEAD {{f.margin}}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069">{{f.grade}}</div>
+        </div>
+        <div style="font-size:17px;color:#3A3F46;margin-top:5px;line-height:1.35">{{f.out}}</div>
+      </div>
+    </sc-for>
+    <div style="border:1px solid #D8D2C4;background:#FCFBF8;padding:16px 18px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:1px;color:#5A6069">HOW TO READ</div>
+      <div style="font-size:18px;line-height:1.45;color:#3A3F46">● election (anchored at 0) → ● frozen day-674 poll → ● next election. Dashes mean <b>no model-grade polling in between</b> — the in-between path is unknown, so none is drawn.</div>
+      <div style="font-size:18px;line-height:1.45;color:#3A3F46">Day-674 marker sits at its true position in each mandate’s real length — note how close Higgs’s marker is to his early election.</div>
+      <div style="border:1px solid #E3C88F;background:#F8F1E2;padding:10px 12px;font-size:17px;line-height:1.4;color:#6B4F10"><b>Higgs comparability:</b> minority legislature, first COVID wave, snap election 47 days after day 674. A short-runway special case, not a fixed-date analogue.</div>
+    </div>
+  </div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>SOURCES: ELECTIONS NB · ARCHIVED CRA / MQO / ANGUS REID RELEASES · 2026 POLLS</div>
+    <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069">CLAIMS C13 · C14 · C15</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#8A5E0D;margin-top:4px">GAPS SHOWN, NOT SMOOTHED</div></div>
+  </div>
+</div>
+
+<!-- ===== FORECAST-PERMISSION GATE ===== -->
+<div data-screen-label="A2 Forecast-permission gate" style="width:1080px;height:1350px;box-sizing:border-box;background:#22262B;color:#F7F5EF;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.2);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #6A7078;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600;color:#F7F5EF">HOLT AT DAY 674</span><span style="color:#9BA1A8"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#9BA1A8">THE FORECAST GATE · EVIDENCE TO AUG 26, 2026</div>
+  </div>
+  <div style="font-size:44px;font-weight:700;line-height:1.12;margin-top:28px;letter-spacing:-0.5px">Why you get a nowcast<br>and not a 2028 probability</div>
+  <div style="font-size:21px;color:#C9C3B4;margin-top:10px">A probability must earn each gate. This analysis stops where the evidence stops.</div>
+  <div style="display:flex;flex-direction:column;margin-top:26px">
+    <sc-for list="{{gates}}" as="g" hint-placeholder-count="5">
+      <div style="display:flex;gap:0;align-items:stretch">
+        <div style="width:64px;flex:none;display:flex;flex-direction:column;align-items:center">
+          <div style="width:4px;flex:1;background:{{g.spineT}}"></div>
+          <div style="width:34px;height:34px;border:3px solid {{g.ring}};background:{{g.dot}};border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:{{g.gtxt}}">{{g.no}}</div>
+          <div style="width:4px;flex:1;background:{{g.spineB}}"></div>
+        </div>
+        <div style="flex:1;display:flex;gap:14px;align-items:center;padding:13px 0">
+          <div style="flex:1.1"><div style="font-size:25px;font-weight:700;line-height:1.2">{{g.t}}</div>
+          <div style="font-size:17.5px;color:#C9C3B4;line-height:1.4;margin-top:4px">{{g.d}}</div></div>
+          <div style="width:170px;flex:none;text-align:center;border:2px solid {{g.ring}};padding:10px 8px;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;letter-spacing:1px;color:{{g.gtxt}};background:{{g.chipBg}}">{{g.status}}</div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;gap:0;border:2px solid #6A7078;margin-top:26px">
+    <div style="flex:1;padding:18px 20px;border-right:1px solid #6A7078">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#7FA98F">PERMITTED</div>
+      <div style="font-size:22px;font-weight:700;margin-top:6px">Current standing:<br>estimable</div>
+      <div style="font-size:16.5px;color:#C9C3B4;margin-top:6px">L 43.2 · PC 33.0 · G 13.4, with a stated reference interval</div>
+    </div>
+    <div style="flex:1;padding:18px 20px;border-right:1px solid #6A7078">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#E3C88F">PERMITTED, LABELLED</div>
+      <div style="font-size:22px;font-weight:700;margin-top:6px">Election held now:<br>stress-testable</div>
+      <div style="font-size:16.5px;color:#C9C3B4;margin-top:6px">Deterministic seat scenarios: 26–32 L, benchmark 30-17-2</div>
+    </div>
+    <div style="flex:1.05;padding:18px 20px;background:#F7F5EF;color:#22262B">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#A0442C">REFUSED</div>
+      <div style="font-size:22px;font-weight:700;margin-top:6px">October 2028 probability:<br>not presently estimable</div>
+      <div style="font-size:16.5px;color:#5A6069;margin-top:6px">A number here would be precision theatre</div>
+    </div>
+  </div>
+  <div style="font-size:19px;color:#C9C3B4;line-height:1.5;margin-top:20px">What would open the gate: ≈30+ documented Canadian mandates with polling vintages at primary-source standard, method-comparable NB series through time, and hindcasts that beat naive benchmarks with honest calibration. None of that exists yet — so the honest output is a labelled nowcast.</div>
+  <div style="margin-top:auto;border-top:2px solid #6A7078;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#9BA1A8;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>MODEL GATE DETAIL: METHODOLOGY PAGE</div>
+    <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#9BA1A8">CLAIMS C16 · C33 · C34</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#E3C88F;margin-top:4px">NO NUMBER IS A FINDING TOO</div></div>
+  </div>
+</div>
+
+<!-- ===== MANDATE-CONVERSION MATRIX (FULL) ===== -->
+<div data-screen-label="A3 Mandate-conversion matrix" style="width:1080px;height:1350px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #22262B;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600">HOLT AT DAY 674</span><span style="color:#5A6069"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">MANDATE-CONVERSION MATRIX · EVIDENCE TO AUG 26, 2026</div>
+  </div>
+  <div style="font-size:42px;font-weight:700;line-height:1.15;margin-top:24px;letter-spacing:-0.5px">Promise → funded action → implementation → output → outcome → recognition</div>
+  <div style="font-size:20px;color:#5A6069;margin-top:8px">Five flagships, chosen before judging performance. Each stage stays separate; spending is never described as an outcome.</div>
+  <div style="display:flex;align-items:center;gap:14px;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069"><span><span style="color:#2F5D50;font-weight:600">✓</span> evidenced</span><span><span style="color:#8A5E0D;font-weight:600">◐</span> partial</span><span><span style="color:#5A6069;font-weight:600">○</span> not yet observed</span><span><span style="color:#A0442C;font-weight:600">▽</span> moved adversely</span><span><span style="color:#A0442C;font-weight:600">✕</span> promise miss</span><span><span style="color:#5A6069">—</span> n/a</span></div>
+  <div style="display:flex;flex-direction:column;margin-top:12px">
+    <sc-for list="{{mx}}" as="f" hint-placeholder-count="5">
+      <div style="border:1px solid #D8D2C4;background:#FCFBF8;margin-top:10px;padding:12px 14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:14px">
+          <div style="font-size:23px;font-weight:700">{{f.n}}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#5A6069;flex:none">{{f.conf}} · {{f.src}}</div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:9px">
+          <sc-for list="{{f.cells}}" as="cl" hint-placeholder-count="6">
+            <div style="flex:1;background:{{cl.bg}};border:1px solid #E2DDD0;padding:7px 7px;display:flex;flex-direction:column;gap:2px">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.4px;color:#5A6069">{{cl.k}}</div>
+              <div style="font-size:16px;line-height:1.3;color:#3A3F46"><span style="font-weight:700;color:{{cl.c}}">{{cl.g}}</span> {{cl.t}}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="font-size:16.5px;color:#5A6069;margin-top:8px;line-height:1.4"><b style="color:#3A3F46">Verdict:</b> {{f.verdict}}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>SOURCES: GNB TRACKERS + RELEASES · NBHC · PUBLIC ACCOUNTS · BUDGET 2026–27 · NB POWER · ABACUS</div>
+    <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069">CLAIMS C19 – C24</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#8A5E0D;margin-top:4px">STAGES STAY SEPARATE</div></div>
+  </div>
+</div>
+
+<!-- ===== ELECTION-PATH MAP ===== -->
+<div data-screen-label="A4 Election-path map" style="width:1080px;height:1350px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #22262B;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600">HOLT AT DAY 674</span><span style="color:#5A6069"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">CONDITIONAL PATH MAP · EVIDENCE TO AUG 26, 2026</div>
+  </div>
+  <div style="font-size:42px;font-weight:700;line-height:1.15;margin-top:24px;letter-spacing:-0.5px">Six ways this can go — every branch a scenario, none a prediction</div>
+  <div style="align-self:center;border:2px solid #22262B;background:#FCFBF8;padding:12px 26px;margin-top:18px;text-align:center">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1.5px;color:#5A6069">STARTING STATE · AUG 26, 2026</div>
+    <div style="font-size:23px;font-weight:700;margin-top:3px">Liberals +10.2 · benchmark 30 of 49 seats · 782 days to the ordinary date</div>
+  </div>
+  <div style="display:flex;gap:16px;margin-top:18px">
+    <div style="flex:1">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:1.5px;color:#2F5D50;border-bottom:2px solid #2F5D50;padding-bottom:6px">ROUTES THAT KEEP GOVERNMENT</div>
+      <sc-for list="{{keep}}" as="k" hint-placeholder-count="3">
+        <div style="border:1px solid #C6D2C6;background:#F2F5F0;margin-top:10px;padding:13px 15px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:21px;font-weight:700">{{k.t}}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;color:#2F5D50;flex:none">SCENARIO</div></div>
+          <div style="font-size:17px;color:#3A3F46;line-height:1.42;margin-top:5px">{{k.seq}}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#2F5D50;margin-top:7px">GATE · {{k.gate}}</div>
+          <div style="font-size:15.5px;color:#5A6069;margin-top:5px;line-height:1.4"><b>Disconfirmed by:</b> {{k.dis}}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="flex:1">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:1.5px;color:#1D4E9E;border-bottom:2px solid #1D4E9E;padding-bottom:6px">ROUTES THAT REMOVE THE MAJORITY</div>
+      <sc-for list="{{lose}}" as="k" hint-placeholder-count="3">
+        <div style="border:1px solid #C4CEDD;background:#F0F3F7;margin-top:10px;padding:13px 15px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:21px;font-weight:700">{{k.t}}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:1px;color:#1D4E9E;flex:none">SCENARIO</div></div>
+          <div style="font-size:17px;color:#3A3F46;line-height:1.42;margin-top:5px">{{k.seq}}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#1D4E9E;margin-top:7px">GATE · {{k.gate}}</div>
+          <div style="font-size:15.5px;color:#5A6069;margin-top:5px;line-height:1.4"><b>Disconfirmed by:</b> {{k.dis}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  <div style="border:1px solid #D8D2C4;background:#FCFBF8;padding:14px 18px;margin-top:16px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">CROSS-CUTTING CONDITIONS</div>
+    <div style="font-size:17.5px;color:#3A3F46;line-height:1.5;margin-top:6px"><b>Green factor:</b> ≈5.7 pts of Liberal→Green movement removes the majority (Kent North flips Green at the 8.2 boundary); Green collapse instead pads Liberal seats. · <b>Regional concentration:</b> six tipping seats cluster in Saint John–Kennebecasis–Hampton and rural-Anglophone belts. · <b>Timing:</b> an early call shortens the runway and makes today’s polls more predictive; the fixed date (Oct 16, 2028) leaves 782 days for any of this to change.</div>
+  </div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>MECHANISM SIZES: DETERMINISTIC STRESS ROUTES, CONVERSION WORKBOOK</div>
+    <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069">CLAIMS C27 · C29 · C30 · C31</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:#8A5E0D;margin-top:4px">SCENARIOS, NOT PREDICTIONS</div></div>
+  </div>
+</div>
+</div>
+
+<div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:2px;color:#8A5E0D;margin-top:8px">B · STANDALONE SHAREABLES · 1080 × 1080</div>
+<div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+
+<!-- S1 -->
+<div data-screen-label="B1 43.2 today" style="width:1080px;height:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #22262B;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#5A6069;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#5A6069">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:88px;font-weight:700;line-height:1.06;letter-spacing:-1.5px;margin-top:70px">43.2% today<br>does <span style="color:#B00E27">not</span> equal<br>43.2% in 2028.</div>
+  <div style="font-size:26px;color:#3A3F46;line-height:1.5;margin-top:34px;max-width:880px">Today’s Liberal benchmark is a recency-weighted reading of three polls — a photograph, not a trajectory. At this same point, Graham polled 51%, Alward 44%, Gallant 50%. None of those numbers survived to election day.</div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;text-align:right">CLAIMS C04 · C13 · C16<br><span style="color:#8A5E0D;font-weight:600">NOWCAST, NOT A FORECAST</span></div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div data-screen-label="B2 Lead with band" style="width:1080px;height:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #22262B;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#5A6069;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#5A6069">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:76px;font-weight:700;line-height:1.08;letter-spacing:-1px;margin-top:56px">A 10.2-point lead —<br>with a wide<br>uncertainty band.</div>
+  <div style="position:relative;height:150px;margin-top:56px">
+    <div style="position:absolute;left:0;right:0;top:72px;height:2px;background:#D8D2C4"></div>
+    <div style="position:absolute;left:{{s2bandL}}px;width:{{s2bandW}}px;top:52px;height:42px;background:#E4DFD2;border:1px solid #B7B0A0"></div>
+    <div style="position:absolute;left:{{s2leadX}}px;top:40px;width:5px;height:66px;background:#22262B"></div>
+    <div style="position:absolute;left:{{s2leadL}}px;top:6px;font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600">BENCHMARK +10.2</div>
+    <sc-for list="{{s2dots}}" as="d" hint-placeholder-count="3">
+      <div style="position:absolute;left:{{d.x}}px;top:66px;width:14px;height:14px;border-radius:50%;background:#F7F5EF;border:3px solid #5A6069"></div>
+    </sc-for>
+    <sc-for list="{{s2dotLbl}}" as="d" hint-placeholder-count="3">
+      <div style="position:absolute;left:{{d.x}}px;top:{{d.y}}px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;white-space:nowrap">{{d.t}}</div>
+    </sc-for>
+    <div style="position:absolute;left:0;top:104px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">0</div>
+    <div style="position:absolute;left:{{s2t5}}px;top:104px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">+5</div>
+    <div style="position:absolute;left:{{s2t10}}px;top:104px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">+10</div>
+    <div style="position:absolute;left:{{s2t15}}px;top:104px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">+15</div>
+    <div style="position:absolute;right:0;top:104px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">+20 PTS</div>
+    <div style="position:absolute;left:{{s2bandLbl}}px;top:126px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:#8A5E0D;font-weight:600">90% REFERENCE INTERVAL ≈ +5.0 TO +15.4</div>
+  </div>
+  <div style="font-size:24px;color:#3A3F46;line-height:1.5;margin-top:40px;max-width:900px">Three non-probability panels disagree — leads of 4, 10 and 14 points. The band is a modelling diagnostic, not a classical confidence interval. The lead is real; its exact size is not settled.</div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">INDEPENDENT ANALYSIS · KURT R. GODDARD · 3 POLLS, MAY–AUG 2026</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;text-align:right">CLAIMS C05 · C06 · C07<br><span style="color:#8A5E0D;font-weight:600">NOWCAST, NOT A FORECAST</span></div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div data-screen-label="B3 31 to 30 seats" style="width:1080px;height:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #22262B;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#5A6069;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#5A6069">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px;margin-top:48px">31 seats in 2024.<br>30 in today’s transparent benchmark.</div>
+  <div style="display:flex;flex-direction:column;gap:26px;margin-top:48px">
+    <div>
+      <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:17px;margin-bottom:8px"><span style="font-weight:600">2024 CERTIFIED</span><span><span style="color:#B00E27;font-weight:600">31 L</span> · <span style="color:#2E7D32;font-weight:600">2 G</span> · <span style="color:#1D4E9E;font-weight:600">16 PC</span></span></div>
+      <div style="position:relative"><div style="display:flex;gap:3px"><sc-for list="{{seats24}}" as="s" hint-placeholder-count="49"><div style="width:17px;height:36px;background:{{s.c}}"></div></sc-for></div>
+      <div style="position:absolute;left:{{majX}}px;top:-8px;height:52px;border-left:2.5px solid #22262B"></div></div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:17px;margin-bottom:8px"><span style="font-weight:600">AUG 26, 2026 BENCHMARK</span><span><span style="color:#B00E27;font-weight:600">30 L</span> · <span style="color:#2E7D32;font-weight:600">2 G</span> · <span style="color:#1D4E9E;font-weight:600">17 PC</span></span></div>
+      <div style="position:relative"><div style="display:flex;gap:3px"><sc-for list="{{seatsNow}}" as="s" hint-placeholder-count="49"><div style="width:17px;height:36px;background:{{s.c}}"></div></sc-for></div>
+      <div style="position:absolute;left:{{majX}}px;top:-8px;height:58px;border-left:2.5px solid #22262B"></div>
+      <div style="position:absolute;left:{{majLbl}}px;top:44px;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600">25 = MAJORITY OF 49</div></div>
+    </div>
+  </div>
+  <div style="font-size:24px;color:#3A3F46;line-height:1.5;margin-top:44px;max-width:900px">Certified result vs a uniform proportional-swing conversion of today’s polls. Poll-specific scenarios span 26–32 Liberal seats. These are stress tests on frozen 2024 geography — not seat forecasts. Never confuse the 31-16-2 result with the 30-17-2 benchmark.</div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">INDEPENDENT ANALYSIS · KURT R. GODDARD · BASE: ELECTIONS NB</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;text-align:right">CLAIMS C01 · C08 · C09<br><span style="color:#8A5E0D;font-weight:600">SCENARIO, NOT A FORECAST</span></div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div data-screen-label="B4 Led and lost" style="width:1080px;height:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #22262B;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#5A6069;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#5A6069">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:70px;font-weight:700;line-height:1.1;letter-spacing:-1px;margin-top:44px">Three premiers led<br>at this stage —<br>and still lost office.</div>
+  <div style="display:flex;flex-direction:column;gap:16px;margin-top:44px">
+    <sc-for list="{{ledLost}}" as="r" hint-placeholder-count="4">
+      <div style="display:flex;align-items:center;gap:18px">
+        <div style="width:150px;flex:none;font-size:23px;font-weight:700">{{r.n}}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:600;color:{{r.c}};width:120px;flex:none;text-align:right">{{r.a}}</div>
+        <div style="flex:1;height:2px;background:#B7B0A0;position:relative"><div style="position:absolute;right:-2px;top:-5px;width:0;height:0;border-left:12px solid #B7B0A0;border-top:6px solid transparent;border-bottom:6px solid transparent"></div></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:21px;font-weight:600;color:{{r.c}};width:120px;flex:none">{{r.b}}</div>
+        <div style="width:250px;flex:none;font-size:19px;color:#3A3F46">{{r.o}}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="border:1px solid #E3C88F;background:#F8F1E2;padding:16px 20px;font-size:20px;line-height:1.5;color:#6B4F10;margin-top:36px"><b>The exception:</b> Higgs (+13 → +5.0) was re-elected — as a minority premier in a pandemic rally, 47 days from a snap election. And Gallant shows winning the vote isn’t winning government. History warns; it does not decide Holt’s result.</div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">INDEPENDENT ANALYSIS · KURT R. GODDARD · DAY-674 POLL → ELECTION MARGIN</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;text-align:right">CLAIMS C13 · C14 · C15<br><span style="color:#8A5E0D;font-weight:600">A WARNING, NOT A VERDICT</span></div>
+  </div>
+</div>
+
+<!-- S5 -->
+<div data-screen-label="B5 Morale not established" style="width:1080px;height:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #22262B;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#5A6069;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#5A6069">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:64px;font-weight:700;line-height:1.12;letter-spacing:-1px;margin-top:44px">Civil-service morale:<br>not established<br>in public evidence —<br><span style="color:#5A6069">either way.</span></div>
+  <div style="border:2px dashed #5A6069;padding:22px 26px;margin-top:40px;max-width:920px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1.5px;color:#5A6069">STATUS: NOT ESTABLISHED — NOT CODED GREEN, AMBER OR RED</div>
+    <div style="font-size:23px;color:#3A3F46;line-height:1.5;margin-top:10px">No representative survey, turnover flow, vacancy, sick-leave or confidence series exists in public — so the evidence neither establishes nor rules out a morale problem. The public leadership record shows mostly internal moves and announced retirements. Documented strain mechanisms are a separate question: a 12% workforce-reduction plan, RTIPPA meeting its 30-day clock 59.5% of the time, one Auditor-General staffing case.</div>
+    <div style="font-size:21px;color:#5A6069;line-height:1.5;margin-top:14px"><b style="color:#3A3F46">What would settle it:</b> quarterly workforce + vacancy + absence series · service standards matched to staffing · a representative anonymous employee survey.</div>
+  </div>
+  <div style="font-size:22px;color:#3A3F46;margin-top:30px">Reported concern is a reason to measure — not a finding to publish.</div>
+  <div style="margin-top:auto;border-top:2px solid #22262B;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">INDEPENDENT ANALYSIS · KURT R. GODDARD</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;text-align:right">CLAIM C26 · NON-FINDING<br><span style="color:#8A5E0D;font-weight:600">MISSING EVIDENCE ≠ RED</span></div>
+  </div>
+</div>
+
+<!-- S6 -->
+<div data-screen-label="B6 What would change my mind" style="width:1080px;height:1080px;box-sizing:border-box;background:#22262B;color:#F7F5EF;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.2);flex:none">
+  <div style="display:flex;justify-content:space-between;border-bottom:1.5px solid #6A7078;padding-bottom:14px;font-family:'IBM Plex Mono',monospace;font-size:15px"><span style="font-weight:600">HOLT AT DAY 674 <span style="color:#9BA1A8;font-weight:400">· NB PROVINCIAL POLITICS</span></span><span style="color:#9BA1A8">EVIDENCE TO AUG 26, 2026</span></div>
+  <div style="font-size:76px;font-weight:700;line-height:1.08;letter-spacing:-1px;margin-top:48px">What would make me change my assessment?</div>
+  <div style="display:flex;flex-direction:column;gap:18px;margin-top:44px">
+    <div style="display:flex;gap:18px;align-items:baseline"><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#E3C88F;flex:none">01</div><div style="font-size:27px;line-height:1.4">Two method-comparable polls after the PC leadership vote (Oct 17) showing the lead under <b>+5</b></div></div>
+    <div style="display:flex;gap:18px;align-items:baseline"><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#E3C88F;flex:none">02</div><div style="font-size:27px;line-height:1.4">Consecutive seat nowcasts at <b>24 or fewer</b> — below the 25-seat majority line</div></div>
+    <div style="display:flex;gap:18px;align-items:baseline"><div style="font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#E3C88F;flex:none">03</div><div style="font-size:27px;line-height:1.4">Handling under <b>30%</b> with disapproval over <b>50%</b>, plus a second decline in primary-care attachment</div></div>
+  </div>
+  <div style="font-size:23px;color:#C9C3B4;line-height:1.5;margin-top:40px">Thresholds set in advance, in public — so you can hold me to them next quarter.</div>
+  <div style="margin-top:auto;border-top:2px solid #6A7078;padding-top:16px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#9BA1A8;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD<br><span style="color:#E3C88F">[method + data link — to be inserted before publication]</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#9BA1A8;text-align:right">CLAIM C32<br><span style="color:#E3C88F;font-weight:600">THRESHOLDS, NOT GUARANTEES</span></div>
+  </div>
+</div>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const LIB='#B00E27',PC='#1D4E9E',GR='#2E7D32',INK='#22262B';
+    // fingerprint: y = 16 + (8 - v) * 7.9 ; x: E=20, F=404; D = 20 + ratio*384
+    const fy=v=>+(16+(8-v)*7.9).toFixed(1);
+    const fp=(n,party,pc,yrs,dv,fv,ratio,margin,out,grade,hl)=>{
+      const dx=+(20+ratio*384).toFixed(1);
+      const pts=[{x:20,y:fy(0),f:pc,st:pc},{x:dx,y:fy(dv),f:pc,st:pc}];
+      const segs=[{x1:20,y1:fy(0),x2:dx,y2:fy(dv),c:pc}];
+      const lbls=[
+        {x:20,y:fy(0)-12,txt:'E',c:'#5A6069',w:600,a:'middle'},
+        {x:dx,y:fy(dv)+(dv>0?-12:20),txt:'674: '+(dv>0?'+':'−')+Math.abs(dv).toFixed(1),c:pc,w:600,a:'middle'}
+      ];
+      if(fv===null){
+        lbls.push({x:398,y:fy(dv)+5,txt:'? 2028',c:INK,w:600,a:'end'});
+        segs.push({x1:dx,y1:fy(dv),x2:376,y2:fy(dv),c:'#5A6069'});
+      } else {
+        pts.push({x:404,y:fy(fv),f:'#FCFBF8',st:pc});
+        segs.push({x1:dx,y1:fy(dv),x2:404,y2:fy(fv),c:pc});
+        lbls.push({x:404,y:fy(fv)+(fv>0?-12:20),txt:'end: '+(fv>0?'+':'−')+Math.abs(fv).toFixed(1),c:pc,w:600,a:'end'});
+      }
+      return {n,party,pc,yrs,zy:fy(0),zyt:fy(0)-6,pts,segs,lbls,margin,out,grade,
+        border:hl?'1.5px solid #C89B4A':'1px solid #D8D2C4'};
+    };
+    const fps=[
+      fp('Shawn Graham','LIBERAL',LIB,'2006–2010',3.84,-12.70,674/1470,'+15.0 → −14.3','Lost government, 2010.','A− · dates n/f'),
+      fp('David Alward','PC',PC,'2010–2014',-4.80,-14.15,674/1456,'+12.0 → −8.1','Lost government, 2014.','B · −71 days'),
+      fp('Brian Gallant','LIBERAL',LIB,'2014–2018',7.27,-4.93,674/1463,'+22.0 → +5.9','Won the popular vote, lost government, 2018.','A− · −15 days'),
+      fp('Blaine Higgs','PC',PC,'2018–2020',7.11,7.45,674/721,'+13.0 → +5.0','Re-elected with a majority, 47 days later.','A · −68 days',true),
+      fp('Susan Holt','LIBERAL',LIB,'2024– ?',-5.10,null,674/1456,'+10.2 → ?','Ordinary election date: Oct 16, 2028.','A/A− · ensemble')
+    ];
+    // gate
+    const g=(no,t,d,status,kind,spineT,spineB)=>{
+      const k={pass:{ring:'#7FA98F',dot:'#2F5D50',gtxt:'#BFD8C6',chipBg:'rgba(47,93,80,.35)'},
+        part:{ring:'#C89B4A',dot:'#6B4F10',gtxt:'#E3C88F',chipBg:'rgba(138,94,13,.3)'},
+        fail:{ring:'#C87860',dot:'#6E2C1E',gtxt:'#E7B5A6',chipBg:'rgba(160,68,44,.3)'},
+        lock:{ring:'#9BA1A8',dot:'#3A3F46',gtxt:'#C9C3B4',chipBg:'rgba(120,126,133,.25)'}}[kind];
+      return {no,t,d,status,spineT,spineB,...k};
+    };
+    const gates=[
+      g('1','Verified current polls','Three independent province-wide 2026 polls — the minimum, and all non-probability or mixed panels.','CLEAR · THIN','pass','transparent','#7FA98F'),
+      g('2','Comparable measures','Denominators, modes and question wording differ across pollsters and decades; one input is a derived normalization.','PARTIAL','part','#7FA98F','#C89B4A'),
+      g('3','Historical training cases','Three usable scheduled-term NB endpoints. Higgs is non-exchangeable. A calibrated model needs ~30+ documented mandates.','FAILS','fail','#C89B4A','#C87860'),
+      g('4','Successful hindcasts','Internally cross-validated on only four cases, simple benchmarks average 6.6–9.8 points of error (3.8–12.7 excluding Higgs, where each fold has just two training cases) — not external validation; far too small for calibration, coverage or scoring.','FAILS','fail','#C87860','#C87860'),
+      g('5','Calibrated 2028 probability','Without the stages above, any percentage would be invented precision.','LOCKED','lock','#C87860','transparent')
+    ];
+    // matrix (full)
+    const S={y:['✓','#2F5D50','#EDF2EC'],p:['◐','#8A5E0D','#F6EFDF'],o:['○','#5A6069','#F3F1EA'],d:['▽','#A0442C','#F5E7E1'],x:['✕','#A0442C','#F5E7E1'],n:['—','#5A6069','#F7F5EF']};
+    const KEYS=['PROMISE','MONEY / AUTHORITY','IMPLEMENTATION','SERVICE OUTPUT','RESIDENT OUTCOME','RECOGNITION'];
+    const cell=(i,k,t)=>({k:KEYS[i],g:S[k][0],c:S[k][1],bg:S[k][2],t});
+    const mx=[
+      {n:'Collaborative primary care',conf:'HIGH OUTPUTS · LOW CAUSALITY',src:'CONV-S15/S16/S17/S18/S06',verdict:'implementation advancing; system effectiveness not yet established. Weak link: announced capacity → unique attachments and timely access.',
+       cells:[cell(0,'y','30 clinics by end-2028'),cell(1,'y','$30m ×2 · $170.4m MDs · $50m digital'),cell(2,'p','15 of 30 announced by May 2026'),cell(3,'p','6,853 of 22,204 expected attachments; 67 net new MDs'),cell(4,'d','permanent provider 77→73%; timely access 34% — predates rollout'),cell(5,'p','health handling 29%')]},
+      {n:'Household affordability',conf:'MODERATE · ADEQUACY UNTESTED',src:'CONV-S10/S32/S33/S21/S06',verdict:'instruments operational; net household effect mixed. “10% off power bills” would overstate what the rebate legally does.',
+       cells:[cell(0,'y','rebate · adjuster removal · 3% rent cap'),cell(1,'y','legislated + funded'),cell(2,'y','all three operating'),cell(3,'p','~$216/yr avg eligible rebate'),cell(4,'p','rates +9.7% / +4.29%; food +3.1%, shelter +2.9%'),cell(5,'p','cost-of-living handling 25%')]},
+      {n:'Housing supply + homelessness',conf:'HIGH OUTPUTS · OUTCOME PENDING',src:'CONV-S10/S06',verdict:'strongest leading indicators and the clearest credit-conversion puzzle; starts are not completions or affordability.',
+       cells:[cell(0,'y','30,000 homes by 2030'),cell(1,'y','programs · grants · strategy'),cell(2,'y','operating'),cell(3,'y','7,587 starts (2025); 343 affordable vs 59/yr'),cell(4,'o','completions/rents n.y.o.; tracked homelessness 1,050→932*'),cell(5,'p','housing handling 29%')]},
+      {n:'Universal school food',conf:'HIGH REACH · OUTCOMES UNKNOWN',src:'CONV-S13/S34/S35',verdict:'breakfast delivered; lunch pending at cutoff (~1 year behind costing assumption); no participation or food-security series yet.',
+       cells:[cell(0,'y','breakfast + pay-what-you-can lunch'),cell(1,'y','$13m + $26m'),cell(2,'p','breakfast all schools; lunch Sept 2026'),cell(3,'y','universal availability (breakfast)'),cell(4,'o','not yet observed'),cell(5,'n','no policy-specific poll')]},
+      {n:'Balanced budgets',conf:'HIGH — VERIFIED MISS',src:'CONV-S19/S20/S21/S22/S06',verdict:'a clear promise miss, off trajectory. Explanations may be legitimate; they do not make the promise fulfilled.',
+       cells:[cell(0,'y','“balance the budget in each year of our mandate”'),cell(1,'n',''),cell(2,'x','no published path to annual balance'),cell(3,'n',''),cell(4,'x','−$104.4m → −$1.328b → −$1.394b; net debt $15.9b'),cell(5,'p','budget 27% · spending 23%')]}
+    ];
+    // path map
+    const keep=[
+      {t:'Broad retention',seq:'Liberal vote holds in the low-to-mid 40s; North/South breadth holds; no correlated Saint John / Central breach.',gate:'STAY ABOVE ≈ +2-PT MAJORITY BOUNDARY',dis:'consecutive nowcasts at 24 or fewer seats.'},
+      {t:'Delivery + credit conversion',seq:'Clinic access, completions and school-food reach become visible; awareness and correct attribution rise; trust and issue ratings recover.',gate:'PERSISTENT GAINS IN OUTCOME + ATTRIBUTION + ISSUE APPROVAL',dis:'high awareness with continued negative adequacy — that shifts the diagnosis to policy substance.'},
+      {t:'Competitive shelter',seq:'PC leadership fails to broaden the party; Greens stay concentrated; dissatisfaction does not consolidate anywhere.',gate:'PC HELD NEAR LOW/MID-30s, BELOW PLURALITY BOUNDARY',dis:'two comparable post-leadership waves showing PC favourability and issue ownership broadening.'}
+    ];
+    const lose=[
+      {t:'Direct PC consolidation',seq:'A recognized new leader unifies the base, owns affordability or fiscal management, and converts firewall regions.',gate:'≈4.1 DIRECT L→PC PER 100 REMOVES MAJORITY · ≈5.7 → PC PLURALITY',dis:'no PC movement six months after leadership, under stable methods.'},
+      {t:'Turnout + regional breach',seq:'Dissatisfied 2024 Liberals abstain; six geographically correlated seats fall before the province-wide lead disappears.',gate:'≈7.3 PTS OF LIBERAL WITHDRAWAL REMOVES MAJORITY',dis:'competitive-seat cells stay stable while volatility happens elsewhere.'},
+      {t:'Capacity + credibility cascade',seq:'Verified workforce strain degrades services; failures become salient and attributable; trust falls; the opposition becomes acceptable.',gate:'REQUIRES CORROBORATED ADMIN + SERVICE + POLLING DETERIORATION',dis:'stable service standards and employee engagement through the reduction.'}
+    ];
+    // shareable geometry
+    const lw2=976, ls2=lw2/20;
+    const s2=(v)=>+(v*ls2).toFixed(1);
+    const s2dots=[{x:s2(4)-7},{x:s2(10.145)-7},{x:s2(14)-7}];
+    const s2dotLbl=[{x:s2(4)-52,y:-22,t:'PORTER +4'},{x:s2(10.145)+14,y:-22,t:'NARRATIVE † +10.1'},{x:s2(14)+14,y:34,t:'ABACUS +14'}];
+    const seatRow=(l,g,pc)=>{const a=[];for(let i=0;i<l;i++)a.push({c:LIB});for(let i=0;i<g;i++)a.push({c:GR});for(let i=0;i<pc;i++)a.push({c:PC});return a};
+    const ledLost=[
+      {n:'Graham',a:'+15.0',b:'−14.3',o:'Lost government, 2010',c:LIB},
+      {n:'Alward',a:'+12.0',b:'−8.1',o:'Lost government, 2014',c:PC},
+      {n:'Gallant',a:'+22.0',b:'+5.9',o:'Lost gov on seats, 2018',c:LIB},
+      {n:'Holt',a:'+10.2',b:'?',o:'Election due Oct 2028',c:'#22262B'}
+    ];
+    return {fps,gates,mx,keep,lose,
+      s2bandL:s2(4.963),s2bandW:+( (15.415-4.963)*ls2 ).toFixed(1),s2leadX:s2(10.189),s2leadL:s2(10.189)-104,
+      s2t5:s2(5),s2t10:s2(10),s2t15:s2(15),s2bandLbl:s2(4.963),
+      s2dots,s2dotLbl,
+      seats24:seatRow(31,2,16),seatsNow:seatRow(30,2,17),majX:+(25*20-1.5).toFixed(1),majLbl:+(25*20+10).toFixed(1),
+      ledLost};
+  }
+}
+</script>
+</body>
+</html>

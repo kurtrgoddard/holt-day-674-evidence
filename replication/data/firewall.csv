@@ -1,0 +1,15 @@
+item,erosion_pts,resulting_l_pc_margin,l_pct,pc_pct,g_pct,l_seats,pc_seats,g_seats,note
+Majority-loss boundary,8.237,1.953,39.036,37.083,13.449,24,22,3,"Deterministic boundary, not a probability"
+PC-plurality boundary,11.37,-1.181,37.469,38.65,13.449,22,24,3,Seat plurality is not automatically government formation
+Tipping 1: Quispamsis,0.034,10.155,,,,,,,flips PC
+Tipping 2: Moncton Northwest,0.424,9.766,,,,,,,flips PC
+Tipping 3: Hampton-Fundy-St. Martins,0.78,9.409,,,,,,,flips PC
+Tipping 4: Rothesay,5.318,4.872,,,,,,,flips PC
+Tipping 5: Saint John West-Lancaster,6.964,3.225,,,,,,,flips PC
+Tipping 6: Kent North,8.237,1.953,,,,,,,flips GREEN — majority lost
+Tipping 7: Miramichi Bay-Neguac,9.191,0.998,,,,,,,flips PC
+Tipping 8: Saint John Portland-Simonds,11.37,-1.181,,,,,,,flips PC — PC plurality
+Tipping 9: Fredericton North,13.456,-3.267,,,,,,,flips PC
+Tipping 10: Champdoré-Irishtown,14.036,-3.847,,,,,,,flips PC
+PO sensitivity: majority loss,2.925,1.075,,,,24,23,2,additional erosion from the 26-seat Porter scenario
+PO sensitivity: PC plurality,5.272,-1.272,,,,23,24,2,additional erosion from the 26-seat Porter scenario

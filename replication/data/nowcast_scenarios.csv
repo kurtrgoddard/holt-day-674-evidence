@@ -1,0 +1,9 @@
+scenario,liberal_pct,pc_pct,green_pct,l_pc_lead,kind,l_seats,pc_seats,green_seats,liberal_majority
+Porter O'Brien,43,39,13,4,poll-specific nowcast,26,21,2,YES
+Narrative derived,40.57971014492754,30.434782608695656,13.043478260869565,10.144927536231883,poll-specific nowcast,30,17,2,YES
+Abacus,45,31,14,14,poll-specific nowcast,32,15,2,YES
+90-day recency ensemble,43.1541724958968,32.964969227287966,13.449355094858092,10.189203268608836,headline nowcast benchmark,30,17,2,YES
+Mild 5-point erosion,40.6541724958968,35.464969227287966,13.449355094858092,5.189203268608836,illustrative horizon scenario,27,20,2,YES
+Full-term analogue median,33.1141724958968,43.004969227287965,13.449355094858092,-9.890796731391163,"illustrative, not forecast",16,29,4,NO
+Two-point Liberal lead,39.059570861592384,37.059570861592384,13.449355094858092,2,majority-threshold sensitivity,25,22,2,YES
+Liberal-PC tie,38.059570861592384,38.059570861592384,13.449355094858092,0,tie sensitivity,23,23,3,NO

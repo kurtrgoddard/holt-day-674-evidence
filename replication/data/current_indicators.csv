@@ -1,0 +1,14 @@
+date_midpoint,measure,pollster,n,positive,negative,residual,net,note
+2024-12-02,Premier approval,Angus Reid Institute,277,53,28,18,25,Online Forum; small NB subsample
+2025-03-14,Premier approval,Angus Reid Institute,248,60,28,12,32,Online Forum; small NB subsample
+2025-06-05,Premier approval,Angus Reid Institute,257,58,33,9,25,Online Forum; small NB subsample
+2025-09-01,Premier approval,Angus Reid Institute,259,52,38,9,14,Online Forum; small NB subsample
+2025-11-28,Premier approval,Angus Reid Institute,231,56,35,9,21,Online Forum; small NB subsample
+2026-03-14,Premier approval,Angus Reid Institute,248,54,40,5,14,Online Forum; small NB subsample
+2026-06-09,Premier approval,Angus Reid Institute,243,41,49,10,-8,Online Forum; small NB subsample
+2025-05-14,Government satisfaction,Narrative Research,400,59,29,12,30,Telephone probability sample
+2025-08-18,Government satisfaction,Narrative Research,400,63,30,7,33,Telephone probability sample
+2026-06-13,Government satisfaction,Narrative Research,495,35,37,28,-2,Online panel — MODE BREAK vs earlier telephone waves
+2026-08-03,Government handling approval,Abacus Data,601,32,37,31,-5,Distinct wording from Narrative satisfaction
+2026-08-03,Holt favourability,Abacus Data,601,35,32,33,3,"Leader favourability, not approval"
+2026-08-03,Right direction,Abacus Data,601,34,45,21,-11,Direction-of-province measure
