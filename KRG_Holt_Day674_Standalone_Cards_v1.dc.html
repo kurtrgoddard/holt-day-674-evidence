@@ -373,7 +373,7 @@ class Component extends DCLogic {
       g('1','Verified current polls','Three independent province-wide 2026 polls — the minimum, and all non-probability or mixed panels.','CLEAR · THIN','pass','transparent','#7FA98F'),
       g('2','Comparable measures','Denominators, modes and question wording differ across pollsters and decades; one input is a derived normalization.','PARTIAL','part','#7FA98F','#C89B4A'),
       g('3','Historical training cases','Three usable scheduled-term NB endpoints. Higgs is non-exchangeable. A calibrated model needs ~30+ documented mandates.','FAILS','fail','#C89B4A','#C87860'),
-      g('4','Successful hindcasts','Across all four cases, simple benchmarks err 6.6–9.8 points on average (4.4–12.7 excluding Higgs) — a sample too small for calibration, coverage or scoring.','FAILS','fail','#C87860','#C87860'),
+      g('4','Successful hindcasts','Internally cross-validated on only four cases, simple benchmarks average 6.6–9.8 points of error (3.8–12.7 excluding Higgs, where each fold has just two training cases) — not external validation; far too small for calibration, coverage or scoring.','FAILS','fail','#C87860','#C87860'),
       g('5','Calibrated 2028 probability','Without the stages above, any percentage would be invented precision.','LOCKED','lock','#C87860','transparent')
     ];
     // matrix (full)

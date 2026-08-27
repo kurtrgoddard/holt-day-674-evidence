@@ -1,4 +1,4 @@
-# FACTS — Holt at Day 674 (reconciled against workbooks, 2026-08-27) · v1.1 post-audit
+# FACTS — Holt at Day 674 (reconciled against workbooks, 2026-08-27) · v1.3
 All values verified against: Day674 WB (Susan_Holt_Mandate_Day_674_Data_Model.xlsx) and Conversion WB (Susan_Holt_Mandate_Conversion_Data_Model_2026-08-26.xlsx).
 
 ## Clocks
@@ -25,7 +25,7 @@ Riding-ledger reconciliation: 162 withdrawn-NDP votes (Saint John Portland-Simon
 ## Firewall (Conversion WB Firewall!B5:B6; deterministic; round 8.2/11.4 publicly)
 Majority-loss boundary: 8.237 pts adverse L-PC erosion -> margin +1.953 -> L39.036 PC37.083 G13.449 -> 24L 22PC 3G.
 PC-plurality boundary: 11.370 -> margin -1.181 -> L37.469 PC38.650 G13.449 -> 22L 24PC 3G.
-Tipping ladder (erosion pts): Quispamsis 0.034; Moncton Northwest 0.424; Hampton-Fundy-St. Martins 0.780; Rothesay 5.318; Saint John West-Lancaster 6.964; Kent North 8.237 (flips GREEN; 6th loss = majority gone); Miramichi Bay-Neguac 9.191; Saint John Portland-Simonds 11.370 (PC plurality); Fredericton North 13.456; Champdore-Irishtown 14.036.
+Tipping ladder (erosion pts): Quispamsis 0.034; Moncton Northwest 0.424; Hampton-Fundy-St. Martins 0.780; Rothesay 5.318; Saint John West-Lancaster 6.964; Kent North 8.237 (flips GREEN; 6th loss = majority gone); Miramichi Bay-Neguac 9.191; Saint John Portland-Simonds 11.370 (PC plurality); Fredericton North 13.456; Champdoré-Irishtown 14.036.
 Porter O'Brien sensitivity: from 26 seats, +2.925 more -> majority lost (24/23/2); +5.272 -> PC plurality (23/24/2).
 Ecological stress routes (majority loss | PC plurality): direct L->PC 4.118 | 5.685 per 100 baseline votes; L turnout withdrawal 7.251 | 9.313; PC recruits from non-voters 9.072 | 11.549; L->Green 5.681 | 9.313. Stylized aggregates, not voter flows.
 
@@ -42,7 +42,7 @@ Boundaries/assembly changed 2010->2014 and pre-2024; historical seat counts not 
 
 ## Model gate (2028 NOT ESTIMABLE)
 Reasons: only 3 recent polls, all non-probability/mixed panels; historical ledger gaps (dates/modes/denominators, esp. pre-2014); only 3 comparable full-term analogues (Higgs 47-day horizon non-exchangeable); no verified 30+ mandate Canadian training set at primary-source standard; regional/riding error not calibrated; PC leadership election 2026-10-17 AFTER cutoff.
-Hindcast MAE (all4|exHiggs): election carry-forward 9.809|10.594; poll carry-forward 9.610|12.698; LOO drift 6.578|4.423 — n too small to validate.
+Hindcast MAE — all four | scheduled-term only: election carry-forward 9.809|10.594; poll carry-forward 9.610|12.698; leave-one-out share drift 6.578|3.848130 (v1.3: Higgs removed from BOTH training and scoring; two training cases per fold; workbook stored 4.423 was a mis-sliced fold — superseded, frozen workbook unmodified). Internally cross-validated on only four cases; not external validation; cannot validate a forecast.
 Trajectory cones 3/6/12/18/24 months: NOT ESTIMABLE. Withdrawn: state-space, Canadian hierarchical, Monte Carlo seat sim.
 Random seed reserved 20260826; published analysis deterministic. Stack: Python, pandas, NumPy, lxml.
 
@@ -113,7 +113,7 @@ C30 Tipping ladder (0.03..14.0; Kent North 8.24; SJPS 11.37) — scenario — Fi
 C31 PO sensitivity (+2.9 majority; +5.3 plurality) — scenario — Firewall!A34:I37.
 C32 Watchlist statuses W01-W12 — coding — Watchlist sheet.
 C33 Half-life sensitivity 11.7/10.6/10.2/10.0 — calculation — ModelAudit!D5:H8 (+discrepancy note).
-C34 Hindcast MAEs 9.8|10.6, 9.6|12.7, 6.6|4.4 — calculation — ModelAudit!A18:E20.
+C34 Hindcast MAEs 9.8|10.6, 9.6|12.7, LOO 6.6|3.8 (ex-Higgs: two training cases per fold; stored 4.423 superseded v1.3) — calculation — ModelAudit!A18:E20 + code/build.py.
 C35 Illustrative scenarios (-5pt 27-20-2; median replay 16-29-4; +2 25-22-2; tie 23-23-3) — scenario — NowcastScenarios!A9:I12.
 C36 Miramichi West by-election PC 57.40 vs 57.08 — fact — day674 ledger S14.
 
@@ -148,7 +148,7 @@ No public methodology URL exists yet -> clearly marked placeholder "[method + da
 ## v1.1 post-audit changes (2026-08-27, external prepublication audit adopted)
 - Canvas sizing: all fixed frames now border-box → export at exactly declared px (1080×1350 / 1080×1080 / 1080×1920).
 - Contrast: essential grey #8B9098→#5A6069 on light; #7A8087→#9BA1A8 on dark; amber #A8730F→#8A5E0D. Type floors raised (min ~13px on 1350 masters).
-- Wording: morale = "not established in public evidence" (no private-source references); Story 6 = "Is credit keeping pace?"; gate hindcast = 6.6–9.8 all-four / 4.4–12.7 ex-Higgs; "-5 pts" scenario = "5-pt erosion (leaving L +5.2)"; fingerprint = "up to three verified points (Holt: two)"; "uniform proportional swing" standardized.
+- Wording: morale = "not established in public evidence" (no private-source references); Story 6 = "Is credit keeping pace?"; gate hindcast = 6.6–9.8 all-four / 3.8–12.7 ex-Higgs (v1.3 LOO fix); "-5 pts" scenario = "5-pt erosion (leaving L +5.2)"; fingerprint = "up to three verified points (Holt: two)"; "uniform proportional swing" standardized.
 - Namespaces: sources CONV-Sxx (conversion WB) vs D674-Sxx (day-674 WB); public claim IDs = PUB-C series (C≡PUB-C), workbook audit IDs = AUD-C.
 - current_polls.csv: other_decided_basis corrected (Narrative 15.942=11/69; Abacus 10=residual incl. rounding; excluded waves 7/3/8); undecided column renamed undecided_all_respondents.
 - C36 (Miramichi West by-election) WITHDRAWN from public use pending raw-vote sourcing (not in replication CSVs; used in no graphic).
@@ -158,3 +158,9 @@ No public methodology URL exists yet -> clearly marked placeholder "[method + da
 - Story safe zones: 250px top / 340px bottom; guides default off; claim IDs burned into frames; Reel cover frame added (420×654 cover crop guidance).
 - LinkedIn: sized PNGs export now; selectable-text 4:5 PDF document post = remaining production task (print-based copy).
 - Higgs framing in copy: always "three of four full-term-adjacent comparators lost; Higgs re-elected (minority/pandemic/47-day runway)".
+
+## v1.3 corrections (2026-08-27, narrow)
+- Ex-Higgs LOO MAE: 4.423 → 3.848130 (Higgs removed from both training and scoring; two training cases per fold). Public 4.4 → 3.8; ex-Higgs range 4.4–12.7 → 3.8–12.7. LOO definition documented: governing-party share drift (day-674 poll → next-election share), each fold predicted from the mean of the others. All-four LOO 6.578 unchanged (three training cases per fold). Framing everywhere: "internally cross-validated on only four cases … not external validation."
+- Model Audit!E20 stored 4.423 is superseded; frozen workbooks left byte-identical — correction logged here, in the methodology corrections, and in the changelog.
+- Riding name normalized: Champdoré-Irishtown (erosion 14.036 unchanged). Index label: "Claim ledger C01–C39; C36 withdrawn." build.py counts DEV lines and exits nonzero on any unresolved deviation.
+- Evidence cutoff (2026-08-26), all evidence values and all political conclusions unchanged.

@@ -3,7 +3,7 @@
 - **Author:** Kurt R. Goddard
 - **Jurisdiction:** New Brunswick
 - **Evidence cutoff:** August 26, 2026
-- **Edition:** v1.2
+- **Edition:** v1.3
 
 ## About this project
 
@@ -21,7 +21,7 @@ I am a former provincial and federal Liberal political staffer. This is personal
 
 - [Project index](KRG_Holt_Day674_Index_v1.dc.html)
 - [Methodology](KRG_Holt_Day674_Methodology_v1.dc.html)
-- [Claim ledger](KRG_Holt_Day674_Claim_Ledger_v1.dc.html)
+- [Claim ledger C01–C39; C36 withdrawn](KRG_Holt_Day674_Claim_Ledger_v1.dc.html)
 - [Facts and source notes](FACTS.md)
 - [Repair log](REPAIR_LOG.md)
 - [Replication data dictionary](replication/DATA_DICTIONARY.md)
