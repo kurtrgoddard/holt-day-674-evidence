@@ -1,0 +1,12 @@
+* -text
+
+*.docx binary
+*.xlsx binary
+*.png binary
+
+README.md text eol=lf
+LICENSE text eol=lf
+.gitattributes text eol=lf
+.nojekyll text eol=lf
+MANIFEST.sha256 text eol=lf
+replication/BUILD_OUTPUT.txt text eol=lf

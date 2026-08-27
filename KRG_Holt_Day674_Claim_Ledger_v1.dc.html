@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1EEE5}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<div style="font-family:'Atkinson Hyperlegible',Arial,sans-serif;color:#22262B;max-width:1160px;margin:0 auto;padding:56px 40px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_DAY674_CLAIM_LEDGER_V1 · CLAIM-AUDIT TABLE · VERIFIED AGAINST WORKBOOKS 2026-08-27</div>
+  <h1 style="font-size:40px;font-weight:700;margin:10px 0 6px 0;letter-spacing:-0.5px">Claim ledger — every public number, its source, and its status</h1>
+  <div style="font-size:19px;color:#5A6069;max-width:880px;line-height:1.5">Each claim ID appears in graphic footers. IDs here are the public PUB-C series (C ≡ PUB-C); the conversion workbook’s internal audit rows form the separate AUD-C series. Sources are namespaced CONV-Sxx / D674-Sxx. Types: <b>fact</b> (certified/original source) · <b>calculation</b> (reproducible from disclosed inputs) · <b>scenario</b> (deterministic, no probability) · <b>inference</b> · <b>hypothesis</b> · <b>non-finding</b>. Workbook cells reference the two companion models in <span style="font-family:'IBM Plex Mono',monospace;font-size:16px">/replication/source/</span>.</div>
+  <div style="border:1px solid #E3C88F;background:#F8F1E2;padding:12px 16px;margin-top:16px;font-size:17px;color:#6B4F10;line-height:1.5"><b>Open discrepancy (logged, does not affect any published graphic):</b> the source report’s text prints the 30-day half-life lead as 11.8; the workbook value is 11.736 (rounds to 11.7). All graphics use the 90-day benchmark (10.2) only.</div>
+  <div style="display:flex;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069;margin-top:20px;border-bottom:2px solid #22262B;padding-bottom:8px">
+    <div style="width:52px;flex:none">ID</div><div style="flex:2.6">CLAIM AS PUBLISHED</div><div style="width:104px;flex:none">TYPE</div><div style="flex:1.4">SOURCE + WORKBOOK CELL</div><div style="flex:1">USED IN</div><div style="width:104px;flex:none">STATUS</div>
+  </div>
+  <sc-for list="{{claims}}" as="c" hint-placeholder-count="39">
+    <div style="display:flex;gap:14px;border-bottom:1px solid #DDD8CB;padding:11px 0;align-items:baseline">
+      <div style="width:52px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600">{{c.id}}</div>
+      <div style="flex:2.6;font-size:16.5px;line-height:1.45">{{c.t}}</div>
+      <div style="width:104px;flex:none"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.5px;padding:3px 7px;background:{{c.kb}};color:{{c.kc}}">{{c.k}}</span></div>
+      <div style="flex:1.4;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#5A6069;line-height:1.5">{{c.s}}</div>
+      <div style="flex:1;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#5A6069;line-height:1.5">{{c.u}}</div>
+      <div style="width:104px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#2F5D50;font-weight:600">{{c.st}}</div>
+    </div>
+  </sc-for>
+  <div style="font-size:16px;color:#5A6069;margin-top:22px;line-height:1.55">Verification: all values reconciled against the two workbooks on 2026-08-27 by re-extraction of sheet formulas (SUMPRODUCT ensemble, COUNTIF seat totals, firewall boundary cells). Sources S01–S45 are itemized on the <a href="KRG_Holt_Day674_Methodology_v1.dc.html">methodology page</a>. Corrections log: methodology §15; repair disposition: REPAIR_LOG.md. · <span style="font-family:'IBM Plex Mono',monospace">v1.1 (post-audit) · evidence frozen 2026-08-26 · sources accessed 2026-08-26</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const K={f:['FACT','#EDF2EC','#2F5D50'],c:['CALC','#E8EDF4','#1E3A5F'],s:['SCENARIO','#F6EFDF','#8A5E0D'],i:['INFERENCE','#F1EDE2','#5A6069'],h:['HYPOTHESIS','#F8F1E2','#8A5E0D'],n:['NON-FINDING','#EFEFEC','#5A6069'],d:['CODING','#EFEFEC','#5A6069']};
+    const r=(id,t,k,s,u,st)=>({id,t,k:K[k][0],kb:K[k][1],kc:K[k][2],s,u,st:st||'✓ RECONCILED'});
+    const claims=[
+      r('C01','2024 certified result 31 L / 16 PC / 2 G; Liberal 48.26% of valid votes (180,806 of 374,661)','f','CONV-S01 / D674-S01 · D674 WB Elections!Q10:S10, L10','Carousel 6 · Card B3'),
+      r('C02','Evidence cutoff Aug 26, 2026 = mandate day 674 (election clock); day 662 (office clock, sworn in Nov 2, 2024)','f','D674-S05 · D674 WB Read Me!A4:B6','All frames'),
+      r('C03','Ordinary election date Oct 16, 2028 (Legislative Assembly Act, RSNB 2014, c 116, s 3(3)–(6)), 782 days after cutoff; dissolution discretion intact','f','D674-S04 · D674 WB Day 674!U9','Carousel 1 · Path map'),
+      r('C04','Recency benchmark L 43.2 / PC 33.0 / G 13.4 (exact 43.154 / 32.965 / 13.449)','c','CONV WB Current Polls!D11:F11 · weights .267/.297/.436 · recompute: code/build.py','Carousel 2–3 · Dashboard 1'),
+      r('C05','Liberal–PC lead +10.2 pts (exact 10.189)','c','D674 WB Model Audit!B11 · recompute: code/build.py','Carousel 1–3 · Cards'),
+      r('C06','90% reference interval ≈ +5.0 to +15.4 (SE 3.177; τ≈3.8; DerSimonian–Laird); a diagnostic, not a classical CI — SE stored as a value in the workbook','c','D674 WB Model Audit!B12:B14 · formula: methodology §4 · recompute: code/build.py','Carousel 2–3 · Card B2','✓ VALUE + HARNESS'),
+      r('C07','Three qualifying polls: Porter O’Brien May 27–Jun 3 (n=802, decided 603) 43/39/13; Narrative Jun 10–17 (n=495, derived decided /69) 40.6/30.4/13.0; Abacus Jul 29–Aug 7 (n=601) 45/31/14. “Other” on each decided basis: 5 / 15.9 derived / 10 residual; all-respondent undecided kept in a separate column','f','CONV-S06/S07/S08 · CONV WB Current Polls rows 8–10 · data/current_polls.csv','Carousel 3'),
+      r('C08','Poll-specific uniform proportional-swing seats 26–32 Liberal; ensemble benchmark 30-17-2','s','D674 WB Nowcast Scenarios!G5:I8 + Riding Model · data/ridings_2024_three_party.csv · recompute: code/build.py','Carousel 6 · Card B3'),
+      r('C09','Majority threshold 25 of 49 seats','f','D674 WB Elections!W10','Carousel 6–7 · Story 3'),
+      r('C10','Majority-loss boundary: 8.237 pts adverse L–PC erosion (public rounding 8.2) → 24-22-3','s','CONV WB Firewall!B5 (stored value) · recompute + tie rule: code/build.py','Carousel 7 · Story 5','✓ VALUE + HARNESS'),
+      r('C11','PC-plurality boundary: 11.370 pts (public rounding 11.4) → 22-24-3; plurality ≠ forming government','s','CONV WB Firewall!B6 (stored value) · recompute + tie rule: code/build.py','Carousel 7 · Story 5','✓ VALUE + HARNESS'),
+      r('C12','Support-retention ratio ≈89% (0.8942 = 43.154 / 48.259). A retention ratio — never a re-election probability','c','D674 WB Day 674!O9','Carousel 4'),
+      r('C13','Day-674 comparators — Graham +15 (108%), Alward +12 (90%), Gallant +22 (117%), Higgs +13 (122%), Holt +10.2 (89%); Graham input from a retrospective CRA table, exact 2008 field dates not found','c','D674 WB Day 674!M5:O9 · D674-S10–S20','Carousel 4 · Fingerprint'),
+      r('C14','Graham, Alward, Gallant later lost government; margin drifts −29.3 / −20.1 / −16.1','f','Elections NB certified outcomes (facts) + D674 WB Day 674!Y5:Y7 (drift calculation)','Carousel 5 · Card B4'),
+      r('C15','Higgs special case: minority, COVID rally, election 47 days after day 674; drift −8.0; re-elected majority','f','D674 WB Day 674 row 8 · D674-S11/S12/S17','Carousel 4–5'),
+      r('C16','No calibrated 2028 probability is estimable from this dataset at the stated evidence standard (six-reason model gate)','n','D674 WB Model Audit!G17:J22 · Historical!A31:F37 · search scope: methodology §8','Carousel 1, 10 · Gate card','✓ SCOPED'),
+      r('C17','Gov/leader measures: Narrative satisfaction 35/37 (online); Abacus handling 32/37, direction 34/45, Holt favourability 35/32; Angus Reid approval 41/49','f','CONV-S06/S08/S09 · exact cells in data/current_indicators.csv','Dashboard 1'),
+      r('C18','Abacus Oct 2025 → Aug 2026: lead 24→14; handling 42→32; trust 39→33; positive change 38→32; net favourability +21→+3 (provider/weighting changed)','f','CONV-S06/S36 · raw Oct-2025 inputs in data/current_polls.csv','Carousel 9 · Dashboard 1'),
+      r('C19','Promise ledger: 104 canonical units; tracker 20 complete / 48 in progress / 35 no public status / 1 no status; analyst stages 9/12/16/11/7/13/36','d','CONV WB Promise Summary!A4:K24 · coding rules in sheet header','Carousel 8 · Matrix'),
+      r('C20','Primary care: 15 of 30 clinics announced; 6,853 of 22,204 expected attachments; 67 net new physicians; permanent-provider access 77%→73%; timely access 34%','f','CONV-S15/S16/S17/S18 · CONV WB Flagship Policies!B5:K5 + Outcomes rows','Carousel 8 · Matrix · Dashboard 2–3'),
+      r('C21','Affordability: 10% rebate on eligible consumption (~$216/yr avg); rates +9.7% (Apr 2025), +4.29% (Apr 2026); 3% rent cap; CPI 2025 +1.7%, food +3.1%, shelter +2.9%','f','CONV-S32/S33/S21/S10 · CONV WB Flagship Policies!B6:K6','Carousel 8 · Matrix · Dashboard 4'),
+      r('C22','Housing: starts 6,169→7,587 (highest comparable since 1955); affordable starts 343 vs 59/yr baseline (+194 Q1 2026); tracked chronic homelessness 1,050→996→932 (definition caution)','f','CONV-S10/S06 · CONV WB Flagship Policies!B7:K7 + Outcomes!A9:A11','Carousel 8 · Matrix · Dashboard 2–3'),
+      r('C23','School food: breakfast in all schools Sept 2025 ($13m); $26m pay-what-you-can lunch begins Sept 2026 (~1 yr behind costing assumption); outcomes not yet observed','f','CONV-S13/S34/S35 · CONV WB Flagship Policies!C8:K8','Carousel 8 · Matrix · Dashboard 2'),
+      r('C24','Balanced budgets: promise “balance the budget in each year of our mandate”; −$104.4m (24–25 actual), −$1.328b (25–26 proj.), −$1.394b (26–27 budget); net debt to $15.902b','f','CONV-S19/S20/S21/S22 · CONV WB Flagship Policies!B9:K9 + Public Accounts / Main Estimates cells','Carousel 8 · Matrix · Dashboard 4'),
+      r('C25','Delivery-legibility gap: descriptive coexistence of real outputs with low public evaluations; credit conversion + weak mandate compression are labelled hypotheses, not identified causes','h','CONV WB Communications!A5:G6','Carousel 9 · Story 6'),
+      r('C26','Senior civil-service morale NOT ESTABLISHED in public evidence (non-finding); capacity-strain mechanisms (12% Part I plan, RTIPPA 59.5%, AG case, dual-hatting) held as a separate inference','n','CONV WB Admin Health!A5:G11','Carousel 9 · Card B5 · Dashboard 5'),
+      r('C27','Opposition shelter: PC opposition approval 17%; ~half cannot rate leadership candidates; 56% unsure; PC leadership vote Oct 17, 2026 (after cutoff)','f','CONV-S06 · D674-S15 (archive snapshot to capture before publication)','Dashboard 6 · Path map'),
+      r('C28','Regional (descriptive only; bases small or undisclosed): Abacus North L 65%, Central L 27 / PC 38 / G 29; Porter rural-Francophone L lead (n=97), rural-Anglophone PC lead','f','CONV-S06/S07','Dashboard 6'),
+      r('C29','Ecological stress routes (per 100 baseline votes) — majority loss: 4.1 direct L→PC / 7.3 turnout withdrawal / 9.1 PC from non-voters / 5.7 L→Green; PC plurality: 5.7 / 9.3 / 11.5 / 9.3','s','CONV WB Stress Tests!A15:K23 (stored) · recompute: code/build.py','Path map','✓ VALUE + HARNESS'),
+      r('C30','Tipping ladder: Quispamsis 0.03 · Moncton NW 0.42 · Hampton–Fundy–St. M. 0.78 · Rothesay 5.3 · SJ West–Lancaster 7.0 · Kent North 8.2 (Green) · Miramichi Bay–Neguac 9.2 · SJ Portland–Simonds 11.4','s','CONV WB Firewall!A10:F31 (stored) · recompute + tie rule: code/build.py','Carousel 7','✓ VALUE + HARNESS'),
+      r('C31','From Porter O’Brien’s 26-seat scenario: +2.9 further points lose the majority; +5.3 give a PC plurality','s','CONV WB Firewall!A34:I37 (stored) · recompute: code/build.py','Carousel 7 · Story 5','✓ VALUE + HARNESS'),
+      r('C32','Watchlist statuses at baseline: margin green-edge · seats green · handling amber · leader amber-red · primary care red · fiscal red · admin grey (not established) · regional amber; W01 amber band 5–<10','d','CONV WB Watchlist!A4:K16','Carousel 10 · Dashboard'),
+      r('C33','Half-life sensitivity of the lead: 11.7 (30d) / 10.6 (60d) / 10.2 (90d) / 10.0 (120d) — the lead survives every tested decay','c','D674 WB Model Audit!D5:H8 · recompute: code/build.py','Methodology','✓ HARNESS + NOTE'),
+      r('C34','Hindcast MAEs — all four cases | excluding Higgs: election carry-forward 9.8 | 10.6; day-674 poll carry-forward 9.6 | 12.7; leave-one-out drift 6.6 | 4.4 — n too small to validate any forecaster','c','D674 WB Model Audit!A18:E20 · definitions + recompute: code/build.py (LOO definition under-documented — open item)','Gate card · Methodology','✓ + OPEN ITEM'),
+      r('C35','Illustrative margins (no probabilities): 5-pt erosion (leaving L +5.2) → 27-20-2; +2 lead → 25-22-2; tie → 23-23-3; historical-median replay → 16-29-4','s','D674 WB Nowcast Scenarios!A9:I12','Carousel 6'),
+      r('C36','Miramichi West by-election (Oct 6, 2025) PC 57.40% vs 57.08% in 2024 — WITHDRAWN from public use pending raw-vote primary sourcing; appears in no graphic','f','D674-S14 · raw votes not yet in replication CSVs','—','⚠ WITHDRAWN'),
+      r('C37','Chronic school absenteeism 32.3% (2024–25 full year) → 31.0% (2025–26 through April) — different windows; target 29%','f','CONV WB Outcomes!A12:L12 · CONV-S13','Dashboard 3'),
+      r('C38','Average weekly earnings growth +3.7% (2025) vs 3.0% target; +3.8% in 2024','f','CONV WB Outcomes!A18:L18 · CONV-S12','Dashboard 4'),
+      r('C39','Labour relations: CUPE 1190 agreement ratified 95%; tentative NBU master agreement; federation attrition warnings','f','CONV-S40/S41','Dashboard 5')
+    ];
+    return {claims};
+  }
+}
+</script>
+</body>
+</html>

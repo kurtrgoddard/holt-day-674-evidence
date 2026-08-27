@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E5E1D6}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<section style="display:flex;flex-direction:column;gap:28px;padding:56px;align-items:flex-start;font-family:'Atkinson Hyperlegible',Arial,sans-serif">
+<div style="max-width:920px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_QUARTERLY_TEMPLATE_V1 · REUSABLE EDITION SHELL · DEFINITIONS FROZEN AT v1.0</div>
+  <div style="font-size:30px;font-weight:700;color:#22262B;margin-top:6px">Quarterly edition template — update the data, never the definitions</div>
+  <div style="font-size:16px;color:#5A6069;margin-top:4px">Duplicate this file per quarter, fill the [Qn] slots, and leave every definition, scale and threshold untouched so editions stay comparable with the Aug 26, 2026 baseline.</div>
+</div>
+
+<div data-screen-label="Quarterly template" style="width:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #22262B;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600">HOLT MANDATE TRACKER</span><span style="color:#5A6069"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#8A5E0D">[ EDITION Qn · vX.X · EVIDENCE TO YYYY-MM-DD ]</div>
+  </div>
+  <div style="display:flex;gap:14px;margin-top:22px">
+    <div style="flex:1.2;border:1.5px solid #22262B;background:#FCFBF8;padding:16px 20px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">WHAT CHANGED SINCE LAST QUARTER</div>
+      <div style="font-size:18px;color:#5A6069;line-height:1.6;margin-top:8px">[ 3–5 bullets max. Only observations, never definition edits. Example: “Two post-leadership polls added; lead W01 moved GREEN-EDGE → AMBER.” ]</div>
+    </div>
+    <div style="flex:1;border:1.5px solid #22262B;background:#FCFBF8;padding:16px 20px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">FROZEN BASELINE · AUG 26, 2026</div>
+      <div style="font-size:17px;color:#3A3F46;line-height:1.65;margin-top:8px;font-family:'IBM Plex Mono',monospace">LEAD +10.2 · SEATS 30/49<br>HANDLING 32/37 · ATTACH 73%<br>DEFICIT $1.394B · MORALE n/o</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
+    <sc-for list="{{panels}}" as="p" hint-placeholder-count="6">
+      <div style="border:1.5px solid #22262B;background:#FCFBF8">
+        <div style="display:flex;justify-content:space-between;background:#22262B;color:#F7F5EF;padding:9px 14px;font-size:18px;font-weight:700">{{p.t}}<span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9C3B4;font-weight:400">FIXED DEFINITIONS</span></div>
+        <div style="padding:8px 14px 12px 14px">
+          <sc-for list="{{p.rows}}" as="r" hint-placeholder-count="3">
+            <div style="border-bottom:1px dotted #D8D2C4;padding:8px 0">
+              <div style="display:flex;justify-content:space-between;gap:10px"><div style="font-size:16.5px;font-weight:700">{{r.n}}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5A6069;flex:none">{{r.def}}</div></div>
+              <div style="display:flex;gap:8px;margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:13px">
+                <div style="flex:1;border:1px solid #D8D2C4;padding:4px 8px;color:#5A6069">Q0 · {{r.base}}</div>
+                <div style="flex:1;border:1.5px dashed #8A5E0D;padding:4px 8px;color:#8A5E0D">[ Qn value ]</div>
+                <div style="width:92px;flex:none;border:1.5px dashed #8A5E0D;padding:4px 8px;color:#8A5E0D">[ Δ vs Q0 ]</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;gap:14px;margin-top:16px">
+    <div style="flex:1;border:1px solid #D8D2C4;background:#FCFBF8;padding:14px 18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">NEW-EVIDENCE INTAKE (APPEND ONLY)</div>
+      <div style="font-size:16px;color:#5A6069;line-height:1.7;margin-top:6px;font-family:'IBM Plex Mono',monospace">+ POLL: [pollster · field dates · n · basis · L/PC/G]<br>+ POLICY OUTCOME: [indicator · period · source]<br>+ OPPOSITION: [leader status · recognition · issue ownership]<br>+ TIMING: [dissolution signals · by-elections]</div>
+    </div>
+    <div style="flex:1;border:1px solid #D8D2C4;background:#FCFBF8;padding:14px 18px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">RULES THAT KEEP EDITIONS COMPARABLE</div>
+      <div style="font-size:16px;color:#3A3F46;line-height:1.55;margin-top:6px">Scales, thresholds and indicator definitions stay as published in v1.0. A wording, mode or panel change on any source series gets this badge on the indicator, never a silent splice: <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;background:#F8F1E2;border:1px solid #E3C88F;color:#6B4F10;padding:2px 7px">⚠ DEFINITION CHANGED — SEE NOTE</span>. One poll never changes a regime classification; replication first. Missing evidence stays grey.</div>
+    </div>
+  </div>
+  <div style="border:1px solid #D8D2C4;background:#FCFBF8;padding:14px 18px;margin-top:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">CHANGELOG (CUMULATIVE, NEWEST FIRST)</div>
+    <div style="font-size:16px;line-height:1.7;margin-top:6px;font-family:'IBM Plex Mono',monospace;color:#5A6069">[ vX.X · date · what changed · why · effect on comparability ]<br><span style="color:#3A3F46">v1.0 · 2026-08-27 · first edition · baseline frozen at Aug 26, 2026</span></div>
+  </div>
+  <div style="border-top:2px solid #22262B;margin-top:16px;padding-top:12px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069">
+    <span>INDEPENDENT ANALYSIS · KURT R. GODDARD · DISCLOSURE: [PER EDITION]</span><span style="color:#8A5E0D;font-weight:600">NOWCAST, NOT A FORECAST</span>
+  </div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const r=(n,def,base)=>({n,def,base});
+    const panels=[
+      {t:'1 · Public opinion',rows:[r('Two-poll L–PC lead','G≥10 · A 5–<10 · R<5 ×2','+10.2 GREEN-EDGE'),r('Gov handling appr/disappr','G≥40 net+ · A 30–39 · R<30&>50','32/37 AMBER'),r('Leader (AR appr · Abacus fav)','R: appr<45 & net-neg ×2','41/49 · 35/32 AMB-RED')]},
+      {t:'2 · Policy delivery',rows:[r('Clinics announced/operating','target 30 by end-2028','15/30'),r('Housing starts (total · afford.)','annual target 6,000','7,587 · 343'),r('School food reach','G≥70% participation','breakfast univ. · lunch pre-launch')]},
+      {t:'3 · Public outcomes',rows:[r('Permanent-provider attachment','target 81 · R: 2nd decline','73% RED'),r('Tracked chronic homelessness','definition-fixed tracker','932 (caution)'),r('Completions / rent burden','linked to starts cohort','n/o')]},
+      {t:'4 · Fiscal + economic',rows:[r('Balance vs promise','promise: annual balance','−$1.394B RED'),r('Net debt','level + trajectory','$15.902B ↑'),r('CPI (all · food · shelter)','official series','1.7 · 3.1 · 2.9')]},
+      {t:'5 · Administrative capacity',rows:[r('Senior morale','representative series only','n/o GREY'),r('Part I workforce pulse','vacancies·acting·absence·SLAs','no public series'),r('RTIPPA 30-day compliance','function-specific','59.5%')]},
+      {t:'6 · Election path',rows:[r('Seat nowcast (L of 49)','G≥27 · A 25–26 · R≤24 ×2','30 GREEN'),r('Buffer to majority loss','benchmark erosion pts','8.2 (PO: 2.9)'),r('PC leader recognition/ownership','post-Oct 17 series','~half can’t rate')]}
+    ];
+    return {panels};
+  }
+}
+</script>
+</body>
+</html>

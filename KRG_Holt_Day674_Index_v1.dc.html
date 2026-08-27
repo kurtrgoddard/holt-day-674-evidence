@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1EEE5}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<div style="font-family:'Atkinson Hyperlegible',Arial,sans-serif;color:#22262B;max-width:980px;margin:0 auto;padding:56px 40px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG · HOLT AT DAY 674 · EVIDENCE SERIES · v1.1 (POST-AUDIT) · EVIDENCE FROZEN 2026-08-26</div>
+  <h1 style="font-size:46px;line-height:1.08;letter-spacing:-0.5px;margin:12px 0 6px 0">Holt at Day 674 — delivery index</h1>
+  <div style="font-size:20px;color:#5A6069;max-width:860px;line-height:1.5">The lead is real. The forecast is not ready. Everything below reconciles to the claim ledger; all masters are 1080-wide and export at 2× or 3× for platform sizes.</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px">
+    <sc-for list="{{items}}" as="i" hint-placeholder-count="9">
+      <a href="{{i.href}}" style="text-decoration:none;color:#22262B;border:1.5px solid #22262B;background:#FCFBF8;padding:18px 20px;display:flex;flex-direction:column;gap:6px" style-hover="background:#F5F2E9;color:#22262B">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#8A5E0D">{{i.k}}</div><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069">{{i.spec}}</div></div>
+        <div style="font-size:23px;font-weight:700;line-height:1.2">{{i.t}}</div>
+        <div style="font-size:16.5px;color:#5A6069;line-height:1.45">{{i.d}}</div>
+      </a>
+    </sc-for>
+  </div>
+  <h2 style="font-size:26px;margin:36px 0 8px 0">Replication package</h2>
+  <div style="font-size:17.5px;line-height:1.65;color:#3A3F46">In <span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">/replication/</span>: frozen source workbooks + reports (<span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">source/</span>), nine cleaned chart-data CSVs including riding-level 2024 votes (<span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">data/</span>), an executable recomputation harness (<span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">code/build.py</span> — one command, stdlib only), the data dictionary, and the changelog. Platform-ready PNG exports live in <span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">/exports/</span>; the prepublication audit and repair log are in <span style="font-family:'IBM Plex Mono',monospace;font-size:15.5px">REPAIR_LOG.md</span>. Editable design source = these .dc.html files.</div>
+  <h2 style="font-size:26px;margin:32px 0 8px 0">Before publishing — one blank left</h2>
+  <div style="border:1px solid #E3C88F;background:#F8F1E2;padding:14px 18px;font-size:17px;color:#6B4F10;line-height:1.6">The <b>disclosure is now in</b> on every asset: “former provincial and federal Liberal political staffer … does not reflect the views of my employer.” Veto or reword it if it reads wrong. Still open: replace every <b>[method + data link]</b> placeholder with a real public URL — recommended: a public GitHub repository holding /replication/ (+ GitHub Pages for the methodology and ledger), optionally frozen on Zenodo/OSF for a citable snapshot. A QR code gets added and tested only once that URL exists.</div>
+  <div style="border-top:2px solid #22262B;margin-top:36px;padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069;display:flex;justify-content:space-between"><span>INDEPENDENT ANALYSIS · KURT R. GODDARD</span><span>NOWCAST, NOT A FORECAST · 2028 NOT ESTIMABLE</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const i=(k,t,d,href,spec)=>({k,t,d,href,spec});
+    const items=[
+      i('01 · FLAGSHIP','10-frame carousel','Cover → three numbers → signal → history → nowcast → firewalls → conversion → hypothesis → watchlist. Every frame survives detachment.','KRG_Holt_Day674_Carousel_v1.dc.html','1080×1350 ×10'),
+      i('02 · SAVE-WORTHY','Mandate dashboard','Six panels — opinion, delivery, outcomes, fiscal, capacity, election path — with direction, quality, dates and “changes if” per indicator. No composite grade.','KRG_Holt_Day674_Dashboard_v1.dc.html','1080 portrait'),
+      i('03 · FEATURES + CARDS','Fingerprints · forecast gate · matrix · path map + 6 shareables','The four exhibit graphics plus the six standalone cards, each with claims and qualifiers baked in.','KRG_Holt_Day674_Standalone_Cards_v1.dc.html','1350s + 1080²'),
+      i('04 · MOTION','Story / Reel storyboard','Seven scenes, 24–30 s, one claim per scene, captions burned in, safe-zone guides, static fallback per scene.','KRG_Holt_Day674_Story_v1.dc.html','1080×1920 ×7'),
+      i('05 · METHOD','Methodology + QC + sources','Clocks, poll synthesis, seat model, firewall math, forecast gate, chart-integrity rules, cover scoring, 15-point QC report, corrections, rights, S01–S45.','KRG_Holt_Day674_Methodology_v1.dc.html','public page'),
+      i('06 · AUDIT','Claim ledger C01–C36','Every public number → type, source, workbook cell, where used, verification status. One open discrepancy logged.','KRG_Holt_Day674_Claim_Ledger_v1.dc.html','audit table'),
+      i('07 · WORDS','Copy, alt text, transcript','LinkedIn / Instagram / Facebook posts, 3 cover hooks, 5 pushback responses, alt text for all 28 assets, full carousel transcript.','KRG_Holt_Day674_Copy_AltText_v1.dc.html','text pack'),
+      i('08 · NEXT QUARTER','Quarterly template','Fixed definitions, Q-vs-baseline delta slots, what-changed strip, append-only intake, definition-change badge, changelog.','KRG_Holt_Quarterly_Template_v1.dc.html','reusable shell'),
+      i('09 · DATA','FACTS.md + /replication/','The reconciled fact sheet behind every graphic, the frozen workbooks, and eight chart-data CSVs with a data dictionary.','FACTS.md','files')
+    ];
+    return {items};
+  }
+}
+</script>
+</body>
+</html>

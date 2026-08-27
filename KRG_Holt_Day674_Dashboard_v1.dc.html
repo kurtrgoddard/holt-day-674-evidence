@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E5E1D6}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<section style="display:flex;flex-direction:column;gap:28px;padding:56px;align-items:flex-start;font-family:'Atkinson Hyperlegible',Arial,sans-serif">
+<div style="max-width:900px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_DAY674_DASHBOARD_V1 · ONE-PAGE PORTRAIT · SIX PANELS · NO COMPOSITE GRADE</div>
+  <div style="font-size:30px;font-weight:700;color:#22262B;margin-top:6px">Mandate dashboard — save-worthy single page</div>
+</div>
+
+<div data-screen-label="Mandate dashboard" style="width:1080px;box-sizing:border-box;background:#F7F5EF;color:#22262B;display:flex;flex-direction:column;padding:52px 52px 44px 52px;box-shadow:0 3px 16px rgba(30,35,40,.14);flex:none">
+  <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #22262B;padding-bottom:14px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:1px"><span style="font-weight:600">HOLT AT DAY 674</span><span style="color:#5A6069"> · NEW BRUNSWICK PROVINCIAL POLITICS</span></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">MANDATE DASHBOARD · EVIDENCE TO AUG 26, 2026</div>
+  </div>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:26px">
+    <div style="max-width:660px">
+      <div style="font-size:54px;font-weight:700;line-height:1.08;letter-spacing:-1px">Six dials, no single score</div>
+      <div style="font-size:22px;color:#3A3F46;line-height:1.45;margin-top:12px">A real but soft electoral advantage: implementation is substantial, but conversion into outcomes, lived improvement and trust is incomplete. Disagreement between panels is the finding — averaging it away would hide it.</div>
+    </div>
+    <div style="border:1.5px solid #22262B;padding:16px 20px;flex:none">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">EDITION</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:17px;font-weight:600;margin-top:4px">v1.1 · Q0 BASELINE</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069;margin-top:2px">NEXT UPDATE · Q4 2026</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069;border:1px solid #D8D2C4;background:#FCFBF8;padding:10px 14px">
+    <span><span style="color:#3E6B4F;font-weight:600">▲ / ●</span> improving / on watch-green</span>
+    <span><span style="color:#8A5E0D;font-weight:600">→ / ◆</span> flat / amber</span>
+    <span><span style="color:#A0442C;font-weight:600">▼ / ✕</span> worsening / red</span>
+    <span><span style="color:#5A6069;font-weight:600">○ n/o</span> not observed — never converted into amber or red</span>
+    <span>QUALITY: A official/original · A− limited comparability · B secondary · D derived</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px">
+    <sc-for list="{{panels}}" as="p" hint-placeholder-count="6">
+      <div style="border:1.5px solid #22262B;background:#FCFBF8;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;background:#22262B;color:#F7F5EF;padding:10px 16px">
+          <div style="font-size:20px;font-weight:700">{{p.no}} · {{p.t}}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C9C3B4">{{p.cond}}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;padding:6px 16px 12px 16px">
+          <sc-for list="{{p.rows}}" as="r" hint-placeholder-count="4">
+            <div style="border-bottom:1px dotted #D8D2C4;padding:10px 0">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline">
+                <div style="font-size:18.5px;font-weight:700;line-height:1.25">{{r.n}}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;flex:none;color:{{r.dc}}">{{r.dir}}</div>
+              </div>
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-top:3px">
+                <div style="font-size:17px;color:#3A3F46;line-height:1.4">{{r.obs}}</div>
+                <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069;flex:none;text-align:right">{{r.q}} · {{r.d}}</div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding-top:10px;border-top:1px solid #E2DDD0;margin-top:2px">
+            <div style="font-size:15.5px;color:#5A6069;line-height:1.45;flex:1"><span style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.5px;color:#8A5E0D">CHANGES IF →</span> {{p.chg}}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069;flex:none">CLAIMS {{p.claims}}</div>
+          </div>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;gap:24px;border:1px solid #D8D2C4;background:#FCFBF8;padding:16px 20px;margin-top:18px">
+    <div style="flex:1"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">METHOD + CLAIM LEDGER</div>
+    <div style="font-size:17px;color:#3A3F46;margin-top:4px;line-height:1.45">Every figure carries a claim ID reconciled to source and workbook cell. <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#8A5E0D">[method + data link — to be inserted before publication]</span></div></div>
+    <div style="flex:1"><div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:1px;color:#5A6069">DISCLOSURE</div>
+    <div style="font-size:16px;color:#3A3F46;margin-top:4px;line-height:1.45">I am a former provincial and federal Liberal political staffer. This is personal, independent analysis — it was not commissioned, reviewed or endorsed by any party or organization, and it does not reflect the views of my employer.</div></div>
+  </div>
+  <div style="border-top:2px solid #22262B;margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;align-items:flex-end">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069;line-height:1.55">INDEPENDENT ANALYSIS · KURT R. GODDARD · NOT COMMISSIONED OR ENDORSED BY ANY PARTY OR ORGANIZATION</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600;color:#8A5E0D">NOWCAST, NOT A FORECAST · 2028 NOT ESTIMABLE</div>
+  </div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1192}}">
+class Component extends DCLogic {
+  renderVals(){
+    const G='#3E6B4F',A='#8A5E0D',R='#A0442C',N='#5A6069';
+    const row=(n,obs,dir,dc,q,d)=>({n,obs,dir,dc,q,d});
+    const panels=[
+      {no:'1',t:'Public opinion',cond:'SOFT ADVANTAGE',rows:[
+        row('Liberal–PC vote lead','+10.2 pts (polls span +4 to +14; 90% ref. interval +5.0 to +15.4)','▼ NARROWING',A,'A/A−/D','AUG 7'),
+        row('Government handling (Abacus)','32% approve / 37% disapprove','▼ FROM 42%*',A,'A−','AUG 2026'),
+        row('Holt approval (Angus Reid)','41% approve / 49% disapprove — first net-negative wave','▼ FROM 54/40',R,'A · SMALL n','JUN 2026'),
+        row('Gov. satisfaction (Narrative)','35% satisfied / 37% dissatisfied','▼ MODE BREAK*',A,'A · ONLINE','JUN 2026')],
+       claims:'C04–C07 · C17 · C18',chg:'two-poll lead under +5 · handling under 30% with disapproval over 50% · two comparable post-leadership waves. *Same-pollster panels changed provider/weighting; treat deltas directionally.'},
+      {no:'2',t:'Policy delivery',cond:'SUBSTANTIAL, SELECTIVE PROOF',rows:[
+        row('Collaborative clinics','15 of 30 announced; 6,853 attachments reported by first 14 (22,204 expected)','▲ ADVANCING',G,'A · GOV-REPORTED','MAY 2026'),
+        row('Housing starts','7,587 total (2025) vs 6,169 (2024); 343 affordable vs 59/yr baseline','▲ ABOVE TARGET',G,'A','2025 + Q1-26'),
+        row('School food','Breakfast in all schools; pay-what-you-can lunch begins Sept 2026 (~1 yr late)','▲ / ○ PENDING',A,'A','SEPT 2025'),
+        row('Platform ledger (104 units)','9 fully operational · 39 authority / funded / begun · 20 partial or in design · 36 not verifiable','● BASELINE',N,'ANALYST-CODED','JUN 2026')],
+       claims:'C19 · C20 · C22 · C23',chg:'operating-scale, reach and unique-attachment data published per flagship · lunch launch confirmed with participation denominators.'},
+      {no:'3',t:'Public outcomes',cond:'MIXED; MOSTLY EARLY',rows:[
+        row('Permanent primary-care provider','73% of residents (was 77% in 2024); timely access 34%','▼ WORSE',R,'A · NBHC INDEPENDENT','2025 SURVEY'),
+        row('Tracked chronic homelessness','932 (May 2026) from 1,050 (2024) — wording/coverage caution','▲ IMPROVING*',G,'A · 3 CENTRES','MAY 2026'),
+        row('Chronic school absenteeism','31.0% through April vs 32.3% full-year 2024–25 — different windows','▲ TENTATIVE',A,'A · REPORT CARD','APR 2026'),
+        row('Housing completions / rent burden','Not yet published for the starts cohort','○ NOT OBSERVED',N,'—','—')],
+       claims:'C20 · C22 · C37',chg:'a second comparable attachment decline (→ red confirmed) · completions and rent-burden series linked to the starts cohort.'},
+      {no:'4',t:'Fiscal + economic setting',cond:'PROMISE OFF TRAJECTORY',rows:[
+        row('Budget balance','−$104.4m actual (24–25) · −$1.328b projected (25–26) · −$1.394b budgeted (26–27)','✕ PROMISE MISS',R,'A · PUBLIC ACCTS','MAR 2026'),
+        row('Net debt','to $15.902b projected by 2026–27 (from $11.829b in 2023–24)','▼ RISING',A,'A','MAR 2026'),
+        row('Consumer prices (2025)','CPI +1.7%; food +3.1%; shelter +2.9% — relief partly offset','→ PRESSURE',A,'A · OFFICIAL STATS','2025'),
+        row('Average weekly earnings','+3.7% (2025) vs 3.0% target; was +3.8% in 2024','→ ABOVE TARGET',G,'A · REPORT CARD','2025')],
+       claims:'C21 · C24 · C38',chg:'a credible published path back to balance with service safeguards · deficit narrowing at Public Accounts 2025–26.'},
+      {no:'5',t:'Administrative capacity',cond:'AMBER MECHANISMS; MORALE NOT ESTABLISHED',rows:[
+        row('Senior civil-service morale','No representative survey, turnover flow, vacancy or absence series exists in public — not established either way','○ NOT OBSERVED',N,'NON-FINDING','AT CUTOFF'),
+        row('Part I workforce plan','≈12% reduction over 3 years (~$100m); realized effects largely unobservable yet','◆ RISK MECHANISM',A,'A','MAR 2026'),
+        row('RTIPPA timeliness','59.5% of requests within 30 business days; manual processes documented','◆ FUNCTION STRAIN',A,'A · REVIEW','JUN 2026'),
+        row('Labour relations','CUPE 1190 ratified 95%; NBU tentative master agreement; attrition warnings','→ MIXED',A,'A/B','2025–26')],
+       claims:'C26 · C39',chg:'quarterly workforce, vacancy, absence + service-standard series · a representative anonymous employee survey. Missing evidence stays grey — it is never coded red.'},
+      {no:'6',t:'Election path',cond:'MAJORITY WITH SHALLOW FIREWALL',rows:[
+        row('Seat benchmark (vote now)','30 of 49 Liberal; poll scenarios span 26–32; majority = 25','● GREEN · BASELINE',G,'CALC · DETERMINISTIC','AUG 2026'),
+        row('Majority buffer','6th seat (Kent North) falls at −8.2 pts; PC plurality at −11.4; weakest poll sits 2.9 from minority','◆ SHALLOW',A,'CALC · SCENARIO','AUG 2026'),
+        row('Opposition state','PC opposition approval 17%; ~half can’t rate leadership candidates; leader chosen Oct 17, 2026','○ UNSETTLED',N,'A−','AUG 2026'),
+        row('Regional breadth','North L 65%; Central L 27 / PC 38 / G 29; rural-Anglophone PC lead — small cells','◆ WATCH',A,'A−/A · DESCRIPTIVE','JUN–AUG 2026')],
+       claims:'C08–C11 · C27 · C28 · C32',chg:'consecutive nowcasts at ≤24 seats · replicated Central/rural-Anglophone erosion + Saint John slippage · post-leadership PC consolidation.'}
+    ];
+    return {panels};
+  }
+}
+</script>
+</body>
+</html>

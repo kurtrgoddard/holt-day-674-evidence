@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F1EEE5}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<div style="font-family:'Atkinson Hyperlegible',Arial,sans-serif;color:#22262B;max-width:920px;margin:0 auto;padding:56px 40px;font-size:18px;line-height:1.6">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_DAY674_METHODOLOGY_V1 · PUBLIC METHOD + SOURCE PAGE · v1.0</div>
+  <h1 style="font-size:44px;line-height:1.1;letter-spacing:-0.5px;margin:12px 0 8px 0">Holt at Day 674 — method, sources and quality control</h1>
+  <div style="color:#5A6069;font-size:19px">Independent analysis by Kurt R. Goddard · Evidence cutoff: August 26, 2026 · Method, data and sources: this page + <a href="KRG_Holt_Day674_Claim_Ledger_v1.dc.html">claim ledger</a> + <span style="font-family:'IBM Plex Mono',monospace;font-size:16px">/replication/</span></div>
+  <div style="border:1px solid #D8D2C4;background:#FCFBF8;padding:14px 18px;margin-top:18px;font-size:17px"><b>Disclosure:</b> I am a former provincial and federal Liberal political staffer. This is personal, independent analysis — it was not commissioned, reviewed or endorsed by any party or organization, and it does not reflect the views of my employer.<br><span style="color:#5A6069">No employer’s name or logo appears anywhere in the series; no party, government or other organization commissioned, reviewed or endorsed it. Given the affiliation disclosed above, fairness rests on the published procedure — symmetric comparators, labelled claim types, the ledger and the recomputation harness — which any reader can check without trusting the author.</span><br><span style="font-family:'IBM Plex Mono',monospace;font-size:15px;color:#8A5E0D">[method + data short link — to be inserted before publication; no QR code is issued until a real public URL exists]</span></div>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">1 · What this series claims — and refuses to claim</h2>
+  <p style="margin:0 0 10px 0">The series estimates <b>current standing</b> (a recency-weighted polling benchmark), stress-tests an <b>election held now</b> (deterministic seat scenarios), and audits <b>mandate conversion</b> (promises → outcomes → recognition). It deliberately does not publish a 2028 re-election probability: the forecast gate (§8) fails. Fair-mindedness is procedural here, not asserted: symmetric party treatment, visible uncertainty, published disconfirming evidence, consistent comparison dates, labelled claim types, a public corrections log, and named unknowns.</p>
+  <p style="margin:0">Every factual assertion carries a claim ID (C01–C39) mapped to source, workbook cell and status in the <a href="KRG_Holt_Day674_Claim_Ledger_v1.dc.html">claim ledger</a>. Claim types: verified fact · calculation · scenario · inference · hypothesis · non-finding. Forecasts would be labelled “forecast” — none appear in this edition. Namespaces: public claim IDs C01–C39 form the PUB-C series (C ≡ PUB-C); the conversion workbook’s internal audit rows are the separate AUD-C series. Source IDs are CONV-Sxx (conversion workbook) and D674-Sxx (day-674 workbook).</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">2 · Plain-language definitions</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;font-size:17px">
+    <div><b>Percentage point:</b> the simple difference between two percentages. 43% → 33% is a fall of 10 <i>points</i> (not “10 percent”).</div>
+    <div><b>Nowcast:</b> an estimate of what would happen <i>if the election were today</i>. It says nothing about 2028.</div>
+    <div><b>Reference interval:</b> the range the Liberal–PC lead plausibly sits in given how much the three polls disagree — a diagnostic, weaker than a classical confidence interval.</div>
+    <div><b>Support-retention ratio:</b> the party’s current poll share divided by its own election share. Holt’s ≈89% describes support kept so far — it is not a probability of anything.</div>
+  </div>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">3 · Clocks and baselines</h2>
+  <p style="margin:0">Primary clock: days after the October 21, 2024 election — August 26, 2026 is day 674. Sensitivity clock: days after the November 2, 2024 swearing-in (day 662). Ordinary election date: October 16, 2028 under the Legislative Assembly Act, RSNB 2014, c 116, s 3(3)–(6) — 782 days after cutoff — subject to dissolution discretion (D674-S04; consolidated text verified 2026-08-26). Vote shares use <b>valid votes</b> for cross-election comparability (the official popular-vote page divides by all ballots and prints slightly lower figures). Historical inputs are frozen at each comparator’s own day-674 date; later-fielded polls are excluded.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">4 · Poll synthesis</h2>
+  <p style="margin:0 0 10px 0"><b>Inclusion:</b> independent province-wide NB vote-intention releases with fieldwork midpoints within ~90 days of the cutoff — exactly three qualify (Porter O’Brien, Narrative, Abacus). <b>Weighting:</b> weight = 0.5^(age/90), ages from exact field-midpoint half-days; normalized weights 0.267 / 0.297 / 0.436. Result: L 43.154 / PC 32.965 / G 13.449; lead 10.189. Respondent bases are <b>not</b> interchangeable and are preserved: Porter O’Brien decided voters; Narrative a <i>derived</i> decided normalization of rounded all-eligible values (party denominator 69; effective n≈342 approximate); Abacus decided voters with an undisclosed decided base (total n=601 used for variance — an optimistic assumption).</p>
+  <p style="margin:0 0 10px 0"><b>Interval:</b> DerSimonian–Laird between-poll variance on the L–PC margin (τ≈3.8 pts) plus nominal multinomial variance → ensemble SE ≈3.177 → 90% reference interval +4.963 to +15.415 (published as +5.0 to +15.4). Not a classical CI: all three surveys are non-probability or mixed panels; τ is unstable at n=3. No margins of error are assigned to opt-in panels. Published “other” shares on each decided basis: Porter O’Brien 5; Narrative 15.94 (derived, 11/69); Abacus 10 (residual; published values sum to 99 from rounding). All-respondent undecided values (21 / 27) sit in a separate column and are never mixed with decided denominators.</p>
+  <p style="margin:0"><b>Half-life sensitivity</b> (lead): 11.7 at 30 days · 10.6 at 60 · 10.2 at 90 (headline) · 10.0 at 120. <span style="background:#F8F1E2;padding:1px 5px">Logged discrepancy: the source report’s text prints 11.8 at 30 days; the workbook computes 11.736. Graphics use the 90-day benchmark only.</span> Excluded stale waves (weight 0): Abacus Oct 2025 (lead 24), Porter O’Brien Nov 2025 (9), Angus Reid Nov 2025 (17).</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">5 · Seat benchmark</h2>
+  <p style="margin:0">Each party’s certified 2024 vote in each of the 49 ridings is scaled by the ratio of its target three-party share to its 2024 three-party share; the highest projected index wins the riding (strict-greater tie rule; boundary searches by bisection to 1e-6, reported at three decimals). This proportional swing preserves Green concentration better than additive swing but remains deterministic: no candidates, incumbency, turnout correlation, regional shocks or riding-level error. Outputs are scenarios — 26 L (Porter O’Brien) / 30 L (Narrative, derived) / 32 L (Abacus) / 30-17-2 (benchmark) — never probabilities. Riding inputs and an executable recomputation harness ship in the replication package (data/ridings_2024_three_party.csv + code/build.py). Ledger reconciliation: 162 votes for a withdrawn NDP candidate (Saint John Portland–Simonds) are excluded, matching the official 374,661 valid votes.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">6 · Firewall and stress routes</h2>
+  <p style="margin:0">Under the same swing model, the majority is lost at <b>8.237</b> points of adverse L–PC margin erosion (public rounding 8.2; sixth loss Kent North, which flips Green) and a PC seat plurality arrives at <b>11.370</b> (11.4; Saint John Portland–Simonds). From the weakest current poll (Porter O’Brien, 26 seats) the majority is only 2.925 further points away. Four ecological routes reach the same boundaries (direct switching 4.1 / turnout withdrawal 7.3 / non-voter recruitment 9.1 / Liberal→Green 5.7 per-100 magnitudes; plurality 5.7 / 9.3 / 11.5 / 9.3) — stylized aggregates, not voter-flow estimates. A plurality does not by itself determine government formation. Both boundaries are stored as values in the workbook; code/build.py recomputes them from the riding CSV and prints any deviation.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">7 · Historical comparison rules</h2>
+  <p style="margin:0">Latest qualifying poll on or before each day-674 date; question types kept separate; offsets and grades disclosed rather than window-robustness asserted: Graham (May 2008 CRA value; exact field dates NOT FOUND; A− retrospective table), Alward (−71 days; B), Gallant (−15 days; A− archived), Higgs (−68 days; A; NB decided n=199; polls disagree by 9 points that month), Holt (−23.5 days to latest component). Margin drifts to the next election: −29.3 / −20.1 / −16.1 for the three full-term cases; −8.0 for Higgs’s 47-day runway. Trajectory cones at 3–24 months: not estimable — no curve is interpolated through unpolled periods. Boundaries and assembly size changed 2010→2014 and before 2024, so historical seat counts never calibrate the 2024 map.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">8 · The forecast gate</h2>
+  <p style="margin:0 0 10px 0">A 2028 probability would require: verified current polls → comparable measures → an adequate historical training set → successful hindcasts → calibration. The chain fails at stage 3: only three usable scheduled-term NB endpoints exist (Higgs is a non-exchangeable snap-election case), the historical intermediate record is not model-grade, and no ≈30-mandate Canadian training set exists at primary-source vintage standard (scope searched: CRA, MQO, Angus Reid and Narrative public archives plus NB Legislative Library election records, 2006–2026 — the non-estimability claim is scoped to this dataset and this evidence standard, not to all conceivable data). Benchmark hindcasts on the four cases (MAE, all|ex-Higgs): election carry-forward 9.8|10.6 · day-674 poll carry-forward 9.6|12.7 · leave-one-out drift 6.6|4.4 — a lower in-sample MAE on n≈3 cannot be promoted to a validated forecast. Withdrawn: state-space model, Canadian hierarchical pooling, Monte Carlo seat simulation. The PC leadership election (October 17, 2026) also post-dates the cutoff, so the opposition configuration itself is unobserved.</p>
+  <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:16px;color:#3A3F46">CURRENT STANDING: ESTIMABLE · ELECTION HELD NOW: STRESS-TESTABLE · OCTOBER 2028 PROBABILITY: NOT PRESENTLY ESTIMABLE</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">9 · Promise, outcome and flagship rules</h2>
+  <p style="margin:0">The 2024 platform was atomized into 104 canonical units (102 raw bullets → 108 atomic rows → 4 duplicates/cross-references retained but not double-counted). Official tracker labels are preserved separately from the analyst-coded public-evidence stage; most stage inputs originate in government trackers, so the coding is analytical, not an independent evaluation. Five flagships were pre-selected (prominence, fiscal scale, salience, expected lag) and tracked along promise → funded action → implementation → service output → resident outcome → public recognition. Stages are never collapsed into a score; spending, announcements and labels are never described as outcomes; “not yet observed” is a data status, never converted to amber or red; no causal attribution without a credible counterfactual; policy areas are never ranked by arbitrary weights.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">10 · Communications and administrative-health rules</h2>
+  <p style="margin:0">The descriptive contrast: implementation indicators coexist with low public evaluations. Credit conversion and weak mandate compression are labelled hypotheses with stated disconfirming tests (linked awareness → attribution → adequacy → experience measurement). Contrary evidence is published alongside: wildfire response earned the government’s highest issue rating, and available broad indicators do not support a French-language transmission failure (reception itself unmeasured; the rural-Francophone cell is n=97). Senior civil-service morale is coded NOT ESTABLISHED in public evidence — the absence of any representative series triggered measurement design, not a finding; individual accounts are never presented as survey results. Objective strain mechanisms (12% Part I reduction plan, RTIPPA 59.5% timeliness, an Auditor-General staffing case, dual-hatting) justify amber on capacity, not on morale.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">11 · Chart integrity rules applied</h2>
+  <p style="margin:0">Bar axes start at zero; the one non-zero baseline (slope chart) is explicitly marked “0 = tied”; no 3-D, no area/volume encoding of 1-D values; regional subsamples shown as descriptive text only; every seat graphic shows all 49 seats and the 25-seat line; uncertainty shown wherever the model produces it; unpolled periods drawn as gaps, never interpolated; public figures rounded consistently (one decimal for points; exact values retained here and in the workbook); correlation never described as cause; party colour appears only on party data, and series are distinguished by direct labels and position, not colour alone.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">12 · Accessibility</h2>
+  <p style="margin:0">Contrast meets WCAG 2.2 AA on the off-white paper: primary ink #22262B 13.96:1 and secondary #5A6069 5.82:1 on #F7F5EF; amber #8A5E0D reserved for large or bold type; greys on dark cards at #9BA1A8 or lighter. Minimum in-frame type ≈13–14 px source on 1350 masters after the v1.1 floor raise (qualifiers ≥16 px), with dense frames flagged for optional split editions; Atkinson Hyperlegible chosen for character disambiguation; expanded party names on first use per frame set; alt text and a plain-text transcript for every asset ship in the <a href="KRG_Holt_Day674_Copy_AltText_v1.dc.html">copy + alt-text file</a>; reading order in exports follows the visual top-to-bottom order; no maps with tiny labels; no decorative chart junk.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">13 · Cover exploration and scoring</h2>
+  <p style="margin:0 0 10px 0">Three directions were built and scored 1–5 before execution (clarity · trust · distinctiveness · accessibility · stopping power):</p>
+  <div style="display:flex;gap:14px">
+    <sc-for list="{{covers}}" as="cv" hint-placeholder-count="3">
+      <div style="flex:1;border:{{cv.border}};background:#FCFBF8;padding:14px 16px">
+        <div style="height:150px;background:{{cv.thBg}};border:1px solid #D8D2C4;position:relative;overflow:hidden">
+          <div style="position:absolute;left:10px;top:8px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:{{cv.thMeta}}">HOLT AT DAY 674 · NB POLITICS</div>
+          <div style="position:absolute;left:10px;top:{{cv.thTitleTop}}px;right:10px;font-weight:700;font-size:{{cv.thTitleSize}}px;line-height:1.05;color:{{cv.thInk}}">{{cv.thTitle}}</div>
+          <div style="position:absolute;left:10px;bottom:8px;right:10px;border-top:1px solid {{cv.thMeta}};padding-top:4px;font-family:'IBM Plex Mono',monospace;font-size:7px;color:{{cv.thMeta}}">KURT R. GODDARD · NOWCAST, NOT A FORECAST</div>
+        </div>
+        <div style="font-size:19px;font-weight:700;margin-top:10px">{{cv.n}}</div>
+        <div style="font-size:15.5px;color:#5A6069;line-height:1.45;margin-top:3px">{{cv.d}}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;margin-top:8px;color:#3A3F46">{{cv.score}} · <b>Σ {{cv.total}}</b></div>
+      </div>
+    </sc-for>
+  </div>
+  <p style="margin:10px 0 0 0;color:#5A6069;font-size:17px"><b>Executed: Civic Forensics</b> — highest on trust and accessibility without sacrificing stopping power; the evidence-receipt framing also scales to every other asset in the series.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">14 · Quality-control report</h2>
+  <sc-for list="{{qc}}" as="q" hint-placeholder-count="15">
+    <div style="display:flex;gap:12px;border-bottom:1px solid #DDD8CB;padding:8px 0;align-items:baseline">
+      <div style="width:34px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069">{{q.no}}</div>
+      <div style="flex:1;font-size:16.5px">{{q.t}}</div>
+      <div style="width:230px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:{{q.c}};text-align:right">{{q.s}}</div>
+    </div>
+  </sc-for>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">15 · Corrections and version history</h2>
+  <p style="margin:0 0 8px 0;font-family:'IBM Plex Mono',monospace;font-size:15px;color:#5A6069">v1.1 · 2026-08-27 · EXTERNAL PREPUBLICATION AUDIT ADOPTED (FULL DISPOSITION: REPAIR_LOG.MD) · BASELINE FROZEN 2026-08-26 · NEXT EDITION Q4 2026</p>
+  <sc-for list="{{corr}}" as="c" hint-placeholder-count="10">
+    <div style="display:flex;gap:12px;border-bottom:1px dotted #DDD8CB;padding:7px 0;font-size:16px"><div style="width:180px;flex:none;font-weight:700">{{c.t}}</div><div style="flex:1;color:#3A3F46">{{c.d}}</div></div>
+  </sc-for>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">16 · Rights ledger</h2>
+  <p style="margin:0">Typefaces: Atkinson Hyperlegible (Braille Institute, SIL Open Font Licence 1.1) and IBM Plex Mono (IBM, SIL OFL 1.1) — both free for commercial use, served via Google Fonts. No photographs, stock imagery, generative portraits or third-party icons are used anywhere in the series; all charts and glyphs are original vector/typographic work. Party colour references are generic red/blue/green identifiers, not party logotypes or wordmarks.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">17 · Replication package</h2>
+  <p style="margin:0">/replication/ contains: frozen source workbooks and reports (<span style="font-family:'IBM Plex Mono',monospace;font-size:15px">source/</span>), nine cleaned chart-data CSVs (<span style="font-family:'IBM Plex Mono',monospace;font-size:15px">data/</span>: polls, indicators, day-674 comparison, scenarios, firewall, stress routes, elections, flagship chains, riding-level 2024 votes), an executable recomputation harness (<span style="font-family:'IBM Plex Mono',monospace;font-size:15px">code/build.py</span> — Python 3.10+, standard library only, one command: <span style="font-family:'IBM Plex Mono',monospace;font-size:15px">python3 code/build.py</span>; recomputes ensemble, interval, seats, firewall boundaries, tipping ladder, half-life sensitivity and hindcast MAEs, printing PASS/DEVIATION against stored values), a data dictionary with poll inclusion/exclusion rules and exact formulas, and a changelog. Random seed 20260826 reserved (published analysis is deterministic). Editable design source: the .dc.html files. Platform-ready PNG exports: <span style="font-family:'IBM Plex Mono',monospace;font-size:15px">/exports/</span>.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">18 · Source ledger</h2>
+  <sc-for list="{{srcs}}" as="s" hint-placeholder-count="30">
+    <div style="display:flex;gap:12px;border-bottom:1px dotted #DDD8CB;padding:6px 0;font-size:15.5px;align-items:baseline">
+      <div style="width:46px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600">{{s.id}}</div>
+      <div style="flex:1.6">{{s.t}} <span style="color:#5A6069">· {{s.p}}</span></div>
+      <div style="width:70px;flex:none;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#5A6069">{{s.g}}</div>
+      <div style="flex:2;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5A6069;word-break:break-all">{{s.u}}</div>
+    </div>
+  </sc-for>
+  <p style="margin:14px 0 0 0;color:#5A6069;font-size:16px">All URLs accessed 2026-08-26 unless dated otherwise; year-only dates are stored as text (never spreadsheet serials). The full 24-row D674 ledger (including remaining historical CRA/Narrative rows) is preserved unmodified in the frozen workbook in /replication/source/. Archive.org snapshots of live pages are a pre-publication task (Kurt) — pollster and government pages change silently.</p>
+
+  <h2 style="font-size:28px;margin:36px 0 8px 0">19 · Quarterly update protocol</h2>
+  <p style="margin:0">Indicator definitions, chart scales and thresholds are fixed at this edition; each quarter updates observations, computes deltas against the frozen Aug 26, 2026 baseline, and ships a “what changed” strip. Any change in a measure’s definition, mode or panel triggers a visible <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;background:#F8F1E2;padding:1px 5px">⚠ DEFINITION CHANGED</span> badge on that indicator rather than a silent splice. See the <a href="KRG_Holt_Quarterly_Template_v1.dc.html">quarterly template</a>.</p>
+
+  <div style="border-top:2px solid #22262B;margin-top:40px;padding-top:14px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#5A6069;display:flex;justify-content:space-between"><span>INDEPENDENT ANALYSIS · KURT R. GODDARD · NOT COMMISSIONED OR ENDORSED BY ANY ORGANIZATION · ALL SOURCES ACCESSED 2026-08-26; ARCHIVE SNAPSHOTS TO CAPTURE BEFORE PUBLICATION</span><span>V1.1 · 2026-08-27</span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    const covers=[
+      {n:'A · Civic Forensics — EXECUTED',d:'Editorial evidence card: big claim, receipt strip, claim IDs, hairline rules. Reads as a document, not an ad.',score:'CLARITY 5 · TRUST 5 · DISTINCT 4 · ACCESS 5 · STOP 4',total:'23/25',border:'2px solid #2F5D50',thBg:'#F7F5EF',thInk:'#22262B',thMeta:'#5A6069',thTitle:'Holt is ahead. History says that is not enough.',thTitleSize:15,thTitleTop:28},
+      {n:'B · Big-Number Ledger',d:'A giant +10.2 dominates; everything else is footnote-scale. Strong hook, but the number alone invites misreading as a forecast.',score:'CLARITY 5 · TRUST 4 · DISTINCT 3 · ACCESS 5 · STOP 4',total:'21/25',border:'1px solid #D8D2C4',thBg:'#F7F5EF',thInk:'#B00E27',thMeta:'#5A6069',thTitle:'+10.2',thTitleSize:44,thTitleTop:40},
+      {n:'C · Chart-First Fingerprint',d:'The five-mandate slope chart as the hero. Credible and distinctive, but demands too much reading in a 2-second feed moment.',score:'CLARITY 3 · TRUST 5 · DISTINCT 4 · ACCESS 3 · STOP 3',total:'18/25',border:'1px solid #D8D2C4',thBg:'#22262B',thInk:'#F7F5EF',thMeta:'#9BA1A8',thTitle:'Five leads. Three defeats. One open question.',thTitleSize:13,thTitleTop:34}
+    ];
+    const G='#2F5D50';
+    const qc=[
+      ['Every public number reconciled to the workbooks','✓ PASS · RE-RUN v1.1'],['Fixed canvases export at exactly the declared pixels (border-box)','✓ PASS · v1.1'],['Executable recomputation harness ships and prints PASS/DEVIATION','✓ PASS · code/build.py'],
+      ['31-16-2 is the 2024 result; 30-17-2 the current benchmark — never swapped','✓ PASS'],
+      ['89% labelled support-retention ratio, never a probability','✓ PASS'],
+      ['All deterministic outputs labelled scenario / stress test / boundary','✓ PASS'],
+      ['No numerical 2028 probability anywhere in the series','✓ PASS'],
+      ['The three polls’ respondent bases kept distinct; Narrative flagged derived','✓ PASS'],
+      ['All historical dates on the election-day clock; offsets disclosed','✓ PASS'],
+      ['Every visual carries jurisdiction + evidence date + qualifier + byline','✓ PASS'],
+      ['Links and QR codes tested','◐ N/A — no public URL yet; placeholders shown, no QR issued'],
+      ['Colour contrast + grayscale legibility (shapes/labels, not colour alone)','✓ PASS · AA TOKENS v1.1'],
+      ['Every frame reviewed at phone scale','◐ v1.1 FLOORS RAISED · DENSE FRAMES NOTED'],
+      ['Detached screenshots retain date, jurisdiction, source cue, qualifier','✓ PASS'],
+      ['Fonts/images rights recorded (OFL fonts; no photography)','✓ PASS'],
+      ['Disclosure inserted from author-confirmed facts (former Liberal staffer; employer views not reflected)','✓ v1.2 · WORDING OPEN TO KURT’S VETO'],
+      ['Claim-audit table produced (C01–C36 with source, cell, status)','✓ PASS · SEE LEDGER']
+    ].map((x,i)=>({no:String(i+1).padStart(2,'0'),t:x[0],s:x[1],c:x[1].startsWith('✓')?G:'#8A5E0D'}));
+    const corr=[
+      {t:'Riding ledger',d:'162 withdrawn-NDP-candidate votes excluded; riding total reconciles to the official 374,661 valid votes. No seat effect.'},
+      {t:'Narrative basis',d:'June 2026 vote row is a derived decided normalization (denominator 69); flagged everywhere it appears.'},
+      {t:'Satisfaction series',d:'2026 online-panel wave separated from earlier telephone waves; no causal trend claimed across the mode break.'},
+      {t:'Abacus Green share',d:'Corrected 13% → 14% (transcription); no benchmark or seat change.'},
+      {t:'Window robustness',d:'Earlier ±30/60/90-day robustness claim replaced with explicit offsets (Alward and Higgs fall outside ±30; Graham dates not found).'},
+      {t:'Communications diagnosis',d:'Downgraded from finding to hypothesis pair (credit conversion + mandate compression); measurement gate added.'},
+      {t:'Civil service',d:'Morale coded UNOBSERVED; administrative health assessed on objective mechanisms only.'},
+      {t:'Stage-audit label',d:'“Independent stage audit” relabelled “analyst-coded public-evidence audit” — most stage inputs originate in government trackers.'},
+      {t:'2028 probability',d:'Confirmed withheld; conditional paths and boundaries only.'},
+      {t:'30-day half-life',d:'Report text prints 11.8; workbook computes 11.736. Logged; graphics use the 90-day benchmark.'},{t:'v1.1 · Canvas + exports',d:'All fixed frames border-box; PNG exports at exactly 1080×1350 / 1080×1080 / 1080×1920 in /exports/.'},{t:'v1.1 · Contrast + type floors',d:'Grey #8B9098→#5A6069 on light, #7A8087→#9BA1A8 on dark, amber →#8A5E0D; minimum frame type raised.'},{t:'v1.1 · Morale wording',d:'“Concern reported” framing replaced with “not established in public evidence”; no references to private accounts anywhere.'},{t:'v1.1 · Hindcast framing',d:'Gate card now reads 6.6–9.8 average error across all four cases (4.4–12.7 excluding Higgs).'},{t:'v1.1 · C36 withdrawn',d:'Miramichi West by-election comparison withdrawn from public use pending raw-vote sourcing.'},{t:'v1.1 · Data + namespaces',d:'current_polls.csv other/undecided corrected; CONV-S/D674-S and PUB-C/AUD-C namespaces; W01 amber band 5–<10; S09 release-date conflict (06-13 vs 06-18) disclosed.'},{t:'v1.2 · Disclosure inserted',d:'Author-confirmed: former provincial and federal Liberal political staffer; personal analysis; employer views not reflected. Method/data URL still pending — placeholder remains until a real public link exists.'}
+    ];
+    const s=(id,t,p,g,u)=>({id,t,p,g,u});
+    const srcs=[
+      s('CONV-S01','Forty-First Provincial General Election report','Elections New Brunswick · 2025-06-02','A','https://www.electionsnb.ca/content/dam/enb/pdf/october-21-2024-forty-first-provincial-general-election.pdf'),
+      s('CONV-S06','Holt Liberals maintain strong lead as PCs search for new leader','Abacus Data · 2026-08-14','A−','https://abacusdata.ca/holts-liberals-maintain-strong-lead-as-pcs-search-for-new-leader/'),
+      s('CONV-S07','First public semi-annual New Brunswick poll','Porter O’Brien · 2026-06-23 (CMS byline shows 06-26)','A','https://www.porterobrien.com/post/porter-o-brien-releases-first-public-semi-annual-new-brunswick-poll-liberals-narrowly-lead-pcs-amo'),
+      s('CONV-S08','Low provincial government satisfaction levels reflected in voter intentions','Narrative Research · 2026-07-02','A','https://narrativeresearch.ca/low-provincial-government-satisfaction-levels-reflected-in-voter-intentions-across-atlantic-canada/'),
+      s('CONV-S09','Premiers’ performance, June 2026','Angus Reid Institute · release date recorded 2026-06-13 (CONV WB) vs 2026-06-18 (D674 WB) — reconcile before publication','A','https://angusreid.org/premiers-performance-june-2026/'),
+      s('CONV-S10','Affordability and housing priority tracker','Government of New Brunswick · 2026-06-12','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/affordability-housing.html'),
+      s('CONV-S11','2025 progress report card','Government of New Brunswick · 2026','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/report-card.html'),
+      s('CONV-S12','Economic development priority tracker','Government of New Brunswick · 2026-06-12','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/economic-development.html'),
+      s('CONV-S13','Education priority tracker','Government of New Brunswick · 2026-06-12','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/education.html'),
+      s('CONV-S14','Environment priority tracker','Government of New Brunswick · 2026-06-12','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/environment.html'),
+      s('CONV-S15','Province reaches midway point of collaborative-care clinic commitment','GNB · 2026-05-04','A','https://www.gnb.ca/en/news/n-b.2026.05.province-reaches-midway-point-collaborative-care-clinic-commitment.html'),
+      s('CONV-S16','Government provides update on health-care system','GNB · 2026-04-29','A','https://www.gnb.ca/en/news/n-b.2026.04.government-provides-update-health-care-system.html'),
+      s('CONV-S17','New Brunswick Primary Care in 2025: Access, Experience and Equity','New Brunswick Health Council · 2026-06-23','A','https://nbhc.ca/nb-primarycare2025-access-experience-equity'),
+      s('CONV-S18','2025 Primary Care Survey','New Brunswick Health Council · 2026-06-23','A','https://nbhc.ca/surveys/2025-primary-care-survey'),
+      s('CONV-S19','Disclosure L-003: Balanced budgets','New Brunswick Liberal Association · 2024-09-19','A','https://nbliberal.ca/wp-content/uploads/disclosure-l-003-balanced-budgets-1.pdf'),
+      s('CONV-S20','Public accounts for 2024-25','GNB · 2025-09-29','A','https://www.gnb.ca/en/news/n-b.2025.09.public-accounts-for-2024-25.html'),
+      s('CONV-S21','Budget 2026-27 Main Estimates','GNB · 2026-03-17','A','https://www.gnb.ca/content/dam/GNB3/gov/budget/docs/main-estimates-budget-principal-2026-2027.pdf'),
+      s('CONV-S22','Budget 2026-27: Putting New Brunswickers first','GNB · 2026-03-17','A','https://www.gnb.ca/en/news/n-b.2026.03.budget-2026-27-putting-new-brunswickers-first.html'),
+      s('CONV-S23','Premier announces senior leadership changes and retirements','GNB · 2025-03-31','A','https://www.gnb.ca/en/news/n-b.2025.03.revised-2f-premier-announces-senior-leadership-changes-and-retirements.html'),
+      s('CONV-S24','Senior government leadership changes','GNB · 2025-08-29','A','https://www.gnb.ca/en/news/n-b.2025.08.senior-government-leadership-changes.html'),
+      s('CONV-S25','Senior government leadership changes','GNB · 2026-04-27','A','https://www.gnb.ca/en/news/n-b.2026.04.senior-government-leadership-changes-0208.html'),
+      s('CONV-S26','Right to Information and Protection of Privacy Act Review Report','Finance and Treasury Board · 2026-06-18','A','https://www.gnb.ca/content/dam/GNB3/gov/rtippa-ldipvp/docs/rtippa-review-report.pdf'),
+      s('CONV-S27','Grant Processes and Outcomes: Tourism, Heritage and Culture','Auditor General of NB · 2026-06-02','A','https://www.agnb-vgnb.ca/uploads/volume_section_translations/697/file/agnb-VI-C4-2026-En.pdf'),
+      s('CONV-S28','Our Action Plan to be Self-Sufficient','GNB · 2007-11-23','A','https://www1.gnb.ca/cnb/multimedia/display-e.asp?id=1277&num=1'),
+      s('CONV-S29','2025 Throne Speech release','GNB · 2025-10-21','A','https://www.gnb.ca/en/news/n-b.2025.10.throne-speech-outlines-change-in-motion-on-health-care-affordability-and-housing.html'),
+      s('CONV-S30','2026 State of the Province address','GNB · 2026-01-29','A','https://www.gnb.ca/en/news/n-b.2026.01.state-of-the-province-address-focuses-on-health-care-and-economy-highlights-opportunities-for-growth.html'),
+      s('CONV-S31','Trusted leadership priority tracker','Government of New Brunswick · 2026-06-12','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/government-priorities/leadership.html'),
+      s('CONV-S32','Electricity rebate','Government of New Brunswick · 2025','A','https://www2.gnb.ca/content/gnb/en/corporate/promo/electricity-rebate.html'),
+      s('CONV-S33','Rate decision','NB Power · 2026','A','https://www.nbpower.com/en/about-us/regulatory/rate-application/rate-decision/'),
+      s('CONV-S34','Universal breakfast announcement','GNB · 2025-09-03','A','https://www.gnb.ca/en/news/n-b.2025.09.government-to-provide-free-nutritious-breakfast-to-all-new-brunswick-students.html'),
+      s('CONV-S35','Pay-what-you-can lunch launch','GNB · 2026-06','A','https://www.gnb.ca/en/news/n-b.2026.06.pay-what-you-can-school-lunch-program-tobegin-inseptember.html'),
+      s('CONV-S36','One year in, Holt Liberals strengthen their lead','Abacus Data · 2025-11-12','A−','https://abacusdata.ca/abacus-data-new-brunswick-poll-one-year-in-susan-holts-liberals-strengthen-their-lead/'),
+      s('CONV-S37','Profs decry catastrophic cuts proposed by N.B. government','University Affairs · 2026-03-03','B','https://universityaffairs.ca/news/profs-decry-catastrophic-cuts-proposed-by-nb-government/'),
+      s('CONV-S38','New Brunswick effectively freezes post-secondary funding','University Affairs · 2026-03-18','B','https://universityaffairs.ca/news/new-brunswick-effectively-freezes-post-secondary-funding-in-2026-budget/'),
+      s('CONV-S39','High wildfire hazard leads to Crown land closures','GNB · 2025-08-09','A','https://www.gnb.ca/en/news/n-b.2025.08.high-wildfire-hazard-leads-to-crown-land-closures-public-urged-to-be-extremely-cautious.html'),
+      s('CONV-S40','New collective agreement signed with CUPE 1190','GNB · 2025-03-05','A','https://www.gnb.ca/en/news/n-b.2025.03.new-collective-agreement-signed-with-cupe-1190.html'),
+      s('CONV-S41','NB Federation of Labour budget response','NBFL · 2026-03-19','B','https://fednb.ca/budget-response-pleased-with-increased-public-investments-remainsvigilant-to-prevent-cuts-to-essential-public-services/'),
+      s('CONV-S42','Prior mandate-day-674 data model','Derived working file · 2026-08-26','Reproducible derived','Frozen in /replication/source/'),
+      s('CONV-S43','Legislative report: first Alward Throne Speech','Canadian Parliamentary Review · 2011','B','https://www.revparlcan.ca/en/vol34-no1-legislative-reports-21/'),
+      s('CONV-S44','First Gallant Throne Speech','Legislative Assembly of NB · 2014-12-03','A','https://www.legnb.ca/content/house_business/58/1/throne_speech/ThroneSpeech2014-e.pdf'),
+      s('CONV-S45','First Higgs Throne Speech','Legislative Assembly of NB · 2018-11-20','A','https://www.legnb.ca/content/house_business/59/2/journals/01181120e.pdf'),
+      s('D674-S01','Forty-First Provincial General Election report (riding-level certified votes)','Elections New Brunswick · 2025-06-02','A','https://www.electionsnb.ca/content/dam/enb/pdf/october-21-2024-forty-first-provincial-general-election.pdf'),
+      s('D674-S02','Provincial election results index','Elections New Brunswick','A','https://www.electionsnb.ca/content/enb/en/resources/publications/election-results.html'),
+      s('D674-S03','Thirty-Sixth Provincial General Election report (2006)','Elections New Brunswick · 2006-01','A','https://www.electionsnb.ca/content/dam/enb/pdf/2006ProvRpt.pdf'),
+      s('D674-S04','Legislative Assembly Act, RSNB 2014, c 116, s 3(3)–(6)','New Brunswick Laws · consolidated, verified 2026-08-26','A','https://laws.gnb.ca/en/document/cs/2014%2C%20c.116'),
+      s('D674-S05','Office of the Premier — sworn in November 2, 2024','Government of New Brunswick','A','https://www.gnb.ca/en/org/office-of-the-premier.html'),
+      s('D674-S10','New Brunswick July 2016 Report (Gallant day-674 input)','MQO Research · 2016-07-01','A− archived','https://web.archive.org/web/20170207112809/https://www.mqoresearch.com/am-nb-0716.pdf'),
+      s('D674-S11','COVID-19 creates comfort zone for incumbent governments (Higgs input)','Angus Reid Institute · 2020-06-08','A','https://angusreid.org/provincial-outlook-june2020/'),
+      s('D674-S12','Satisfaction reaches highest level recorded (Higgs telephone sensitivity)','Narrative Research · 2020-05-27','A','https://narrativeresearch.ca/satisfaction-with-the-performance-of-the-nb-government-reaches-highest-level-ever-recorded-for-the-province/'),
+      s('D674-S13','Tories drop in support but still ahead in New Brunswick (Alward input)','Global News / CRA · 2012-05-22','B','https://globalnews.ca/news/253743/tories-drop-in-support-but-still-ahead-in-n-l-n-b-cra-poll/'),
+      s('D674-S14','Miramichi West by-election results (C36 — withdrawn pending raw votes)','Legislative Library of NB · 2025-10-06','A','https://www1.gnb.ca/leglibbib/en/Resources/NBElections.aspx/ElectionResults/10-6-2025'),
+      s('D674-S15','PCNB Leadership Election — October 17, 2026','Progressive Conservative Party of NB · announced 2026-01-01','A first-party','https://pcnb.ca/event/pcnb-leadership-election/'),
+      s('D674-S16','Support for the New Brunswick Liberal Party rebounds (Gallant satisfaction wave)','Corporate Research Associates · 2016-06-09','A− archived','https://web.archive.org/web/20170510125642/https://cra.ca/wp-content/uploads/2016/06/16-2-NB-Press-Release-29348243950262.pdf'),
+      s('D674-S17','Satisfaction remains high despite trending down after election call (Higgs post-cutoff sensitivity)','Narrative Research · 2020-09-05','A','https://narrativeresearch.ca/satisfaction-levels-with-the-nb-provincial-government-remain-high-despite-trending-down-after-the-election-call/'),
+      s('D674-S18','CRA Atlantic Quarterly Summer 2008 New Brunswick tables (Graham retrospective values)','Corporate Research Associates · 2008-09-04','A− archived','https://web.archive.org/web/20081219114350/http://www.cra.ca/site-cra/media/CRA/08-3%20NB%20Tables.pdf'),
+      s('D674-S19','Atlantic Canadians largely satisfied with provincial and federal governments','Narrative Research · 2025-08-12','A','https://narrativeresearch.ca/atlantic-canadians-are-largely-satisfied-with-the-performance-of-both-their-provincial-and-federal-governments/'),
+      s('D674-S20','One year in, Holt Liberals strengthen their lead (Oct 2025 wave)','Abacus Data · 2025-11-12','A−','https://abacusdata.ca/abacus-data-new-brunswick-poll-one-year-in-susan-holts-liberals-strengthen-their-lead/')
+    ];
+    return {covers,qc,corr,srcs};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+Holt at Day 674 replication run
+Run timestamp (UTC): 2026-08-27T18:01:05Z
+Python version: Python 3.14.3
+Operating system: macOS 26.6.2 (arm64)
+Command: python3 code/build.py
+
+--- stdout and stderr ---
+====================================================================================================
+1. RECENCY-WEIGHTED ENSEMBLE (weight = 0.5^(age_days/90), normalized over core 2026 polls)
+PASS  Liberal benchmark                                          got    43.154172  stored    43.154172  d=+0.000000 pts
+PASS  PC benchmark                                               got    32.964969  stored    32.964969  d=+0.000000 pts
+PASS  Green benchmark                                            got    13.449355  stored    13.449355  d=-0.000000 pts
+PASS  Liberal-PC lead                                            got    10.189203  stored    10.189203  d=+0.000000 pts
+      weight Porter O'Brien         0.266602  (stored 0.266602)
+      weight Narrative Research     0.296954  (stored 0.296954)
+      weight Abacus Data            0.436444  (stored 0.436444)
+====================================================================================================
+2. REFERENCE INTERVAL (DerSimonian-Laird heterogeneity on the L-PC margin; methodology s4)
+      per-poll margins ['4.000', '10.145', '14.000']  variances ['13.572', '20.464', '12.319']
+PASS  tau (between-poll SD)                                      got     3.772130  stored     3.800000  d=-0.027870 pts (approx target)
+PASS  ensemble SE                                                got     3.176836  stored     3.176800  d=+0.000036 pts
+PASS  90% interval low                                           got     4.963773  stored     4.963300  d=+0.000473 pts
+PASS  90% interval high                                          got    15.414634  stored    15.415100  d=-0.000466 pts
+      NOTE: the workbook stores SE as a value; small deviations reflect its exact n assumptions.
+====================================================================================================
+3. SEAT MODEL (uniform proportional swing on certified 2024 three-party riding votes)
+PASS  seats Porter O'Brien 43/39/13                      got 26-21-2  stored 26-21-2
+PASS  seats Narrative derived                            got 30-17-2  stored 30-17-2
+PASS  seats Abacus 45/31/14                              got 32-15-2  stored 32-15-2
+PASS  seats 90-day ensemble                              got 30-17-2  stored 30-17-2
+PASS  seats Mild 5-pt erosion (L +5.2)                   got 27-20-2  stored 27-20-2
+PASS  seats Two-point lead                               got 25-22-2  stored 25-22-2
+PASS  seats Tie                                          got 23-23-3  stored 23-23-3
+====================================================================================================
+4. FIREWALL BOUNDARIES (erosion e: L-e/2 -> PC+e/2; bisection to 1e-6, reported at 3 decimals)
+PASS  majority-loss boundary                                     got     8.236630  stored     8.237000  d=-0.000370 pts erosion
+PASS  PC-plurality boundary                                      got    11.370250  stored    11.370000  d=+0.000250 pts erosion
+      at majority loss: 24-22-3 (stored 24-22-3);  at plurality: 22-24-3 (stored 22-24-3)
+====================================================================================================
+5. TIPPING LADDER (first ten Liberal-held seats to flip, by required erosion)
+PASS  tip  1 got Quispamsis                           0.034   stored Quispamsis                           0.034
+PASS  tip  2 got Moncton Northwest                    0.424   stored Moncton Northwest                    0.424
+PASS  tip  3 got Hampton-Fundy-St. Martins            0.780   stored Hampton-Fundy-St. Martins            0.780
+PASS  tip  4 got Rothesay                             5.318   stored Rothesay                             5.318
+PASS  tip  5 got Saint John West-Lancaster            6.964   stored Saint John West-Lancaster            6.964
+PASS  tip  6 got Kent North                           8.237   stored Kent North                           8.237
+PASS  tip  7 got Miramichi Bay-Neguac                 9.191   stored Miramichi Bay-Neguac                 9.191
+PASS  tip  8 got Saint John Portland-Simonds         11.370   stored Saint John Portland-Simonds         11.370
+PASS  tip  9 got Fredericton North                   13.456   stored Fredericton North                   13.456
+DEV   tip 10 got Champdoré-Irishtown                 14.036   stored Champdore-Irishtown                 14.036
+====================================================================================================
+6. HALF-LIFE SENSITIVITY OF THE LEAD
+PASS  lead at 30-day half-life                                   got    11.735723  stored    11.735700  d=+0.000023 pts
+PASS  lead at 60-day half-life                                   got    10.596871  stored    10.596900  d=-0.000029 pts
+PASS  lead at 90-day half-life                                   got    10.189203  stored    10.189200  d=+0.000003 pts
+PASS  lead at 120-day half-life                                  got     9.984769  stored     9.984800  d=-0.000031 pts
+      Logged discrepancy: report TEXT prints 11.8 at 30d; workbook computes 11.736 (rounds 11.7).
+====================================================================================================
+7. HINDCAST MAEs (definitions printed; shares of valid votes, governing party)
+PASS  election carry-forward MAE (all 4)                         got     9.808668  stored     9.809000  d=-0.000332 
+PASS  election carry-forward MAE (ex-Higgs)                      got    10.593809  stored    10.594000  d=-0.000191 
+PASS  poll carry-forward MAE (all 4)                             got     9.609762  stored     9.610000  d=-0.000238 
+PASS  poll carry-forward MAE (ex-Higgs)                          got    12.698405  stored    12.698000  d=+0.000405 
+      LOO drift under mean-of-others definition: all4 6.578 / ex-Higgs 4.423  vs stored 6.578 / 4.423 -> OPEN ITEM: the workbook's LOO definition is under-documented; stored values are reported, not forced to match.
+====================================================================================================
+Done. Any DEV line above the stated tolerance is a defect: fix data or workbook, never the print.
+--- end stdout and stderr ---
+Exit code: 0

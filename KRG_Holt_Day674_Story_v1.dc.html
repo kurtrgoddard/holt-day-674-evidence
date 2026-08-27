@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E5E1D6}
+a{color:#1E3A5F}a:hover{color:#14304A}
+</style>
+</helmet>
+<section style="display:flex;flex-direction:column;gap:32px;padding:56px;align-items:flex-start;font-family:'Atkinson Hyperlegible',Arial,sans-serif">
+<div style="max-width:940px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:2px;color:#5A6069">KRG_HOLT_DAY674_STORY_V1 · 1080 × 1920 · 7 SCENES · 24–30 SECONDS · CAPTIONS WORK WITHOUT SOUND · NO RAPID FLASHING</div>
+  <div style="font-size:30px;font-weight:700;color:#22262B;margin-top:6px">Story / Reel storyboard — each frame is its own static fallback</div>
+  <div style="font-size:16px;color:#5A6069;margin-top:4px">Dotted lines mark platform-safe zones (250px top, 340px bottom per Meta guidance). Guides default OFF for export — toggle on in Tweaks while composing. Claim IDs are burned into every frame footer.</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:44px;align-items:flex-start">
+<sc-for list="{{scenes}}" as="sn" hint-placeholder-count="7">
+  <div style="display:flex;flex-direction:column;gap:14px;flex:none">
+    <div data-screen-label="{{sn.label}}" style="width:1080px;height:1920px;box-sizing:border-box;background:{{sn.bg}};color:{{sn.fg}};position:relative;display:flex;flex-direction:column;padding:72px;box-shadow:0 3px 16px rgba(30,35,40,.16);flex:none;overflow:hidden">
+      <sc-if value="{{showSafeGuides}}" hint-placeholder-val="{{true}}">
+        <div style="position:absolute;left:0;right:0;top:250px;border-top:1.5px dashed {{sn.guide}};opacity:0.55"></div>
+        <div style="position:absolute;left:0;right:0;bottom:340px;border-top:1.5px dashed {{sn.guide}};opacity:0.55"></div>
+        <div style="position:absolute;right:14px;top:226px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{sn.guide}};opacity:0.8">SAFE ZONE ↓</div>
+        <div style="position:absolute;right:14px;bottom:314px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{sn.guide}};opacity:0.8">SAFE ZONE ↑</div>
+      </sc-if>
+      <div style="margin-top:262px;display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:17px">
+        <span style="font-weight:600">HOLT AT DAY 674</span><span style="opacity:0.65">{{sn.no}}/7 · AUG 26, 2026</span>
+      </div>
+      <div style="font-size:{{sn.hSize}}px;font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-top:{{sn.hTop}}px;text-wrap:balance">{{sn.h1}}<span style="color:{{sn.accent}}">{{sn.h2}}</span></div>
+      <sc-if value="{{sn.showBand}}" hint-placeholder-val="{{false}}">
+        <div style="position:relative;height:120px;margin-top:60px">
+          <div style="position:absolute;left:0;right:0;top:50px;height:3px;background:#D8D2C4"></div>
+          <div style="position:absolute;left:{{bandL}}px;width:{{bandW}}px;top:30px;height:44px;background:#E4DFD2;border:1px solid #B7B0A0"></div>
+          <div style="position:absolute;left:{{leadX}}px;top:18px;width:6px;height:68px;background:#22262B"></div>
+          <div style="position:absolute;left:0;top:96px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#5A6069">0</div>
+          <div style="position:absolute;right:0;top:96px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#5A6069">+20 PTS</div>
+          <div style="position:absolute;left:{{bandL}}px;top:96px;font-family:'IBM Plex Mono',monospace;font-size:17px;color:#8A5E0D;font-weight:600">≈ +5.0 TO +15.4</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{sn.showSeats}}" hint-placeholder-val="{{false}}">
+        <div style="position:relative;margin-top:60px">
+          <div style="display:flex;gap:3.5px"><sc-for list="{{seatsNow}}" as="s" hint-placeholder-count="49"><div style="width:15.7px;height:52px;background:{{s.c}}"></div></sc-for></div>
+          <div style="position:absolute;left:{{majX}}px;top:-12px;height:76px;border-left:3px solid #22262B"></div>
+          <div style="position:absolute;left:{{majX}}px;top:70px;font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;margin-left:10px">25 = MAJORITY</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{sn.showArrows}}" hint-placeholder-val="{{false}}">
+        <div style="display:flex;flex-direction:column;gap:26px;margin-top:56px">
+          <sc-for list="{{arrows}}" as="a" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:20px">
+              <div style="width:190px;flex:none;font-size:30px;font-weight:700">{{a.n}}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:{{a.c}}">{{a.a}}</div>
+              <div style="flex:1;height:2.5px;background:#B7B0A0;position:relative"><div style="position:absolute;right:-2px;top:-6px;width:0;height:0;border-left:14px solid #B7B0A0;border-top:7px solid transparent;border-bottom:7px solid transparent"></div></div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;color:{{a.c}}">{{a.b}}</div>
+              <div style="width:190px;flex:none;font-size:22px;color:#5A6069">{{a.o}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{sn.showChain}}" hint-placeholder-val="{{false}}">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:56px">
+          <sc-for list="{{chain}}" as="c" hint-placeholder-count="6">
+            <div style="border:{{c.b}};background:{{c.bg}};padding:16px 20px;display:flex;justify-content:space-between;align-items:center">
+              <div style="font-size:27px;font-weight:700;color:{{c.c}}">{{c.n}}</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;color:{{c.c}}">{{c.s}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <div style="font-size:{{sn.capSize}}px;color:{{sn.capC}};line-height:1.42;margin-top:{{sn.capTop}}px;max-width:900px;text-wrap:pretty">{{sn.cap}}</div>
+      <div style="margin-top:auto;margin-bottom:352px;border-top:2px solid {{sn.rule}};padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;line-height:1.5;opacity:0.75">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>NB PROVINCIAL POLITICS · EVIDENCE TO AUG 26, 2026</div>
+        <div style="text-align:right"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;opacity:0.7">CLAIMS {{sn.claims}}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;color:{{sn.accent}};margin-top:4px">{{sn.qual}}</div></div>
+      </div>
+    </div>
+    <div style="width:1080px;border:1px solid #C9C3B4;background:#F1EEE5;padding:16px 20px;font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#3A3F46;line-height:1.6;flex:none">
+      <span style="font-weight:600;color:#8A5E0D">{{sn.time}}</span> · MOTION: {{sn.motion}}<br>CAPTION (BURNED IN): “{{sn.cap}}” · CLAIMS {{sn.claims}} · STATIC FALLBACK = THIS FRAME
+    </div>
+  </div>
+</sc-for>
+<div style="display:flex;flex-direction:column;gap:14px;flex:none">
+  <div data-screen-label="S0 Reel cover" style="width:1080px;height:1920px;box-sizing:border-box;background:#22262B;color:#F7F5EF;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:72px;box-shadow:0 3px 16px rgba(30,35,40,.16);flex:none;overflow:hidden">
+    <sc-if value="{{showSafeGuides}}" hint-placeholder-val="{{false}}">
+      <div style="position:absolute;left:0;right:0;top:240px;bottom:240px;border-top:1.5px dashed #9BA1A8;border-bottom:1.5px dashed #9BA1A8;opacity:0.55"></div>
+      <div style="position:absolute;right:14px;top:216px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#9BA1A8;opacity:0.8">GRID / COVER CROP ↓</div>
+    </sc-if>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:19px;letter-spacing:3px;color:#C9C3B4">NEW BRUNSWICK PROVINCIAL POLITICS · AUG 26, 2026</div>
+    <div style="font-size:132px;font-weight:700;line-height:1.02;letter-spacing:-2px;margin-top:36px">Holt at<br>Day 674</div>
+    <div style="font-size:40px;color:#E3C88F;margin-top:36px;max-width:760px;line-height:1.25;text-wrap:balance">The lead is real.<br>The forecast is not ready.</div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:17px;color:#9BA1A8;margin-top:56px;line-height:1.7">INDEPENDENT ANALYSIS · KURT R. GODDARD<br>NOWCAST, NOT A FORECAST</div>
+  </div>
+  <div style="width:1080px;border:1px solid #C9C3B4;background:#F1EEE5;padding:16px 20px;font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#3A3F46;line-height:1.6;flex:none;box-sizing:border-box">
+    <span style="font-weight:600;color:#8A5E0D">REEL COVER</span> · export full 1080×1920; Instagram displays a 420×654 cover and centre grid crops — all content sits inside the centre zone (guides via Tweaks) · NOT part of the 24–30s runtime
+  </div>
+</div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showSafeGuides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Export&quot;}}">
+class Component extends DCLogic {
+  renderVals(){
+    const LIB='#B00E27',PC='#1D4E9E',GR='#2E7D32';
+    const paper={bg:'#F7F5EF',fg:'#22262B',guide:'#5A6069',rule:'#22262B',capC:'#3A3F46'};
+    const ink={bg:'#22262B',fg:'#F7F5EF',guide:'#9BA1A8',rule:'#6A7078',capC:'#C9C3B4'};
+    const scenes=[
+      {...paper,no:'1',label:'S1 Hook',h1:'Holt is ahead. ',h2:'Is she safe?',accent:'#1E3A5F',hSize:120,hTop:120,
+       cap:'Susan Holt’s Liberals lead New Brunswick polling at mandate day 674. History complicates the story.',capSize:34,capTop:60,
+       qual:'NOWCAST, NOT A FORECAST',time:'0:00–0:03',motion:'hard cut in; two lines settle with a 200ms ease — no flashing',claims:'C02 · C05'},
+      {...paper,no:'2',label:'S2 The lead',h1:'+10.2 ',h2:'points',accent:'#22262B',hSize:150,hTop:90,showBand:true,
+       cap:'The lead is real — three independent polls put it between 4 and 14 points. The band is the honest width.',capSize:34,capTop:56,
+       qual:'3 POLLS · MAY–AUG 2026',time:'0:03–0:07',motion:'number counts up from 0; band draws left→right after the tick lands',claims:'C05 · C06 · C07'},
+      {...paper,no:'3',label:'S3 Seats now',h1:'Vote today: ',h2:'30 of 49',accent:LIB,hSize:110,hTop:90,showSeats:true,
+       cap:'Every poll’s deterministic scenario returns a Liberal majority — 26 to 32 seats against the 25-seat line.',capSize:34,capTop:64,
+       qual:'SCENARIO, NOT A FORECAST',time:'0:07–0:11',motion:'seat cells fill in sequence (60ms stagger); majority line drops last',claims:'C08 · C09'},
+      {...paper,no:'4',label:'S4 History',h1:'They led here too. ',h2:'All three lost.',accent:'#1E3A5F',hSize:96,hTop:80,showArrows:true,
+       cap:'Graham, Alward and Gallant all led at day 674 — and all three lost office. (Higgs won: minority, pandemic, snap election.)',capSize:32,capTop:56,
+       qual:'A WARNING, NOT A VERDICT',time:'0:11–0:15',motion:'rows slide in one by one; arrows sweep left→right',claims:'C13 · C14 · C15'},
+      {...paper,no:'5',label:'S5 Firewall',h1:'The majority ends ',h2:'8.2 points away.',accent:'#8A5E0D',hSize:96,hTop:90,
+       cap:'Six seat losses erase the majority after about 8.2 points of erosion — and from the weakest current poll, just 2.9 more. A PC plurality sits at 11.4.',capSize:34,capTop:64,
+       qual:'BOUNDARIES, NOT PREDICTIONS',time:'0:15–0:19',motion:'axis draws; the six tipping ticks land in order, boundary flags last',claims:'C10 · C11 · C31'},
+      {...paper,no:'6',label:'S6 Delivery gap',h1:'Delivery is real. ',h2:'Is credit keeping pace?',accent:'#8A5E0D',hSize:88,hTop:70,showChain:true,
+       cap:'Clinics, housing starts, school breakfast — real. Issue approval sits at 25–29%. Whether recognition is keeping pace, and why, is a hypothesis to test — not a verdict.',capSize:32,capTop:50,
+       qual:'LABELLED: HYPOTHESIS',time:'0:19–0:24',motion:'chain boxes light up in sequence; the last two flicker to dashed — single transition, no strobe',claims:'C20–C25'},
+      {...ink,no:'7',label:'S7 Close',h1:'Nowcast ≠ forecast. ',h2:'2028: not estimable.',accent:'#E3C88F',hSize:96,hTop:110,
+       cap:'The evidence supports today’s reading — not a 2028 probability. Method, data and every claim ID: [method + data link — to be inserted before publication]',capSize:34,capTop:70,
+       qual:'FULL METHOD PUBLIC',time:'0:24–0:30',motion:'equals sign strikes through to ≠; end card holds 3s for the link',claims:'C16'}
+    ];
+    const lw=936, ls=lw/20, s=v=>+(v*ls).toFixed(1);
+    const seatRow=(l,g,pc)=>{const a=[];for(let i=0;i<l;i++)a.push({c:LIB});for(let i=0;i<g;i++)a.push({c:GR});for(let i=0;i<pc;i++)a.push({c:PC});return a};
+    const chain=[
+      {n:'Promise',s:'✓ EVIDENCED',b:'1.5px solid #2F5D50',bg:'#EDF2EC',c:'#2F5D50'},
+      {n:'Funded action',s:'✓ EVIDENCED',b:'1.5px solid #2F5D50',bg:'#EDF2EC',c:'#2F5D50'},
+      {n:'Implementation',s:'✓ EVIDENCED',b:'1.5px solid #2F5D50',bg:'#EDF2EC',c:'#2F5D50'},
+      {n:'Service output',s:'✓ EVIDENCED',b:'1.5px solid #2F5D50',bg:'#EDF2EC',c:'#2F5D50'},
+      {n:'Public outcome',s:'? THIN / EARLY',b:'1.5px dashed #8A5E0D',bg:'#F8F1E2',c:'#8A5E0D'},
+      {n:'Public recognition',s:'? 25–32%',b:'1.5px dashed #8A5E0D',bg:'#F8F1E2',c:'#8A5E0D'}
+    ];
+    return {showSafeGuides:this.props.showSafeGuides??false,scenes,
+      bandL:s(4.963),bandW:+((15.415-4.963)*ls).toFixed(1),leadX:s(10.189),
+      seatsNow:seatRow(30,2,17),majX:+(25*19.2-2).toFixed(1),
+      arrows:[{n:'Graham',a:'+15.0',b:'−14.3',o:'lost, 2010',c:LIB},{n:'Alward',a:'+12.0',b:'−8.1',o:'lost, 2014',c:PC},{n:'Gallant',a:'+22.0',b:'+5.9',o:'lost gov, 2018',c:LIB}],
+      chain};
+  }
+}
+</script>
+</body>
+</html>
